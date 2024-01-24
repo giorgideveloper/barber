@@ -28,3 +28,22 @@ export const workingHours = async () => {
 		throw err;
 	}
 };
+
+export const bookingCreate = async data => {
+	try {
+		const res = await axios.post(
+			`${baseUrl}/bookings/create/`,
+			{
+				...data,
+			},
+			{
+				headers: {
+					'Content-Type': 'application/json',
+				},
+			}
+		);
+		return res.data;
+	} catch (err) {
+		throw err;
+	}
+};

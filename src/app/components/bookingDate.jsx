@@ -6,7 +6,7 @@ import { bookingTime } from '../api/api';
 import moment from 'moment';
 import Hours from './hours';
 
-export default function BookingDate() {
+export default function BookingDate({ setFreeHour, setDay }) {
 	const [timeBooking, setTimeBooking] = useState('');
 	const [time, setTime] = useState('');
 	const [showHours, setShowHours] = useState(false);
@@ -20,6 +20,7 @@ export default function BookingDate() {
 				console.log(err);
 			}
 		};
+		setDay(time);
 		fetchTime();
 	}, [time]);
 
@@ -59,7 +60,11 @@ export default function BookingDate() {
 				</div>
 				<div className='col-12 col-xl-6'>
 					{' '}
-					<Hours showHours={showHours} bookings={timeBooking} />
+					<Hours
+						showHours={showHours}
+						bookings={timeBooking}
+						setFreeHour={setFreeHour}
+					/>
 				</div>
 			</div>
 		</div>

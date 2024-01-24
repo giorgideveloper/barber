@@ -9,7 +9,6 @@ export default function Home() {
 				<div className='row'>
 					<h2 className='text-center mt-3'>Booking Barber</h2>
 					<Booking />
-					<BookingDate />
 				</div>
 			</div>
 		</main>

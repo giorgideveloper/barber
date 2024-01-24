@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { workingHours } from '../api/api';
 
-export default function Hours({ showHours, bookings }) {
+export default function Hours({ showHours, bookings, setFreeHour }) {
 	const [hours, setHours] = useState([]);
 
 	useEffect(() => {
@@ -21,18 +21,18 @@ export default function Hours({ showHours, bookings }) {
 	for (const hour in hours) {
 		let isBooked = false;
 		for (const booking in bookings) {
-			if (hours[hour].time_for_booking == bookings[booking].time_for_booking) {
+			if (hours[hour].time == bookings[booking].time_for_booking) {
 				isBooked = true;
 			}
 		}
 
 		finalBookings.push({
-			// id: hours[hour].id, TODO: should be fixed
-			time: hours[hour].time_for_booking,
+			id: hours[hour].id,
+			time: hours[hour].time,
 			booked: isBooked,
 		});
 	}
-
+	console.log(bookings);
 	return (
 		<div>
 			{showHours
@@ -42,10 +42,12 @@ export default function Hours({ showHours, bookings }) {
 							<input
 								type='radio'
 								className='btn-check my-radio'
-								name={index} // TODO
+								name='options' // TODO
 								id={index} // TODO
 								autoComplete='off'
+								value={booking.id}
 								disabled={booking.booked}
+								onChange={e => setFreeHour(e.target.value)}
 							/>
 							<label
 								className='btn btn-secondary my-radio'
