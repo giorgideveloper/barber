@@ -32,7 +32,7 @@ export default function Hours({ showHours, bookings, setFreeHour }) {
 			booked: isBooked,
 		});
 	}
-	console.log(bookings);
+
 	return (
 		<div>
 			{showHours
