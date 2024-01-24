@@ -4,11 +4,12 @@ import Flatpickr from 'react-flatpickr';
 import 'flatpickr/dist/flatpickr.css';
 import { bookingTime } from '../api/api';
 import moment from 'moment';
-import Houers from './houers';
+import Hours from './hours';
 
 export default function BookingDate() {
 	const [timeBooking, setTimeBooking] = useState('');
 	const [time, setTime] = useState('');
+	const [showHours, setShowHours] = useState(false);
 
 	useEffect(() => {
 		const fetchTime = async () => {
@@ -22,8 +23,6 @@ export default function BookingDate() {
 		fetchTime();
 	}, [time]);
 
-	console.log(timeBooking);
-
 	//Flatpickr options
 	const options = {
 		inline: true,
@@ -31,20 +30,36 @@ export default function BookingDate() {
 		dateFormat: 'M d Y',
 		minDate: new Date(),
 		defaultDate: [],
-		onChange: (selectedDates, dateStr, instance) =>
-			setTime(moment(dateStr).format().slice(-30, -15)),
+		locale: {
+			weekdays: {
+				shorthand: ['კვ', 'ორ', 'სა', 'ოთ', 'ხუ', 'პა', 'შა'],
+				longhand: [
+					'კვირა',
+					'ორშაბათი',
+					'სამშაბათი',
+					'ოთხშაბათი',
+					'ხუთშაბათი',
+					'პარასკევი',
+					'შაბათი',
+				],
+			},
+			firstDayOfWeek: 1, // start week on Monday
+		},
+		onChange: (selectedDates, dateStr, instance) => {
+			setTime(moment(dateStr).format().slice(-30, -15)), setShowHours(true);
+		},
 	};
 
 	return (
-		<div className='col-6 mt-3'>
+		<div className='col-12 col-md-6  mt-3'>
 			<h3>აირჩიე დრო</h3>
 			<div className='row'>
-				<div className='col-6'>
+				<div className='col-12 col-xl-6'>
 					<Flatpickr hidden options={options} />
 				</div>
-				<div className='col-6'>
+				<div className='col-12 col-xl-6'>
 					{' '}
-					<Houers timeBooking={timeBooking} />
+					<Hours showHours={showHours} bookings={timeBooking} />
 				</div>
 			</div>
 		</div>

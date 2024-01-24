@@ -20,7 +20,7 @@ export const bookingTime = async time => {
 	}
 };
 
-export const bookingHours = async () => {
+export const workingHours = async () => {
 	try {
 		const res = await axios.get(`${baseUrl}/time`);
 		return res.data.results;

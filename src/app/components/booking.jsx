@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Booking() {
 	return (
-		<div className='col-6 mt-3'>
+		<div className='col-12 col-md-6 mt-3'>
 			<div className='row g-2'>
 				<h3>აირჩიეთ სერვისი</h3>
 				<div className='col-md'>
