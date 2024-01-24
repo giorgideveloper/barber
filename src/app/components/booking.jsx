@@ -2,8 +2,11 @@
 import React, { useState } from 'react';
 import BookingDate from './bookingDate';
 import { bookingCreate } from '../api/api';
+import toast from '@/helper/toast';
+import { useRouter } from 'next/navigation';
 
 export default function Booking() {
+	const router = useRouter();
 	const [day, setDay] = useState('');
 	const [freeHour, setFreeHour] = useState('');
 	const [user, setUser] = useState({
@@ -29,9 +32,12 @@ export default function Booking() {
 		setUser({ ...user, [name]: value });
 	};
 
+	// Post request
 	const handleBooking = () => {
 		try {
-			const res = bookingCreate(myObg);
+			bookingCreate(myObg);
+			toast('success', 'ჯავსანი მიღებულია');
+			router.push('/');
 		} catch (error) {
 			console.log(error);
 		}
@@ -67,8 +73,6 @@ export default function Booking() {
 							>
 								<option value='0'>არჩევა</option>
 								<option value='1'>ნინო</option>
-								<option value='2'>ჯონი</option>
-								<option value='3'>რემბო</option>
 							</select>
 							<label htmlFor='floatingSelectGrid'>ბარბერი</label>
 						</div>
