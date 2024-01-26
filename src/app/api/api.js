@@ -19,9 +19,14 @@ export const allBarber = async () => {
 	}
 };
 
-export const bookingTime = async time => {
+export const bookingTime = async (time, barberId) => {
 	try {
-		const res = await axios.get(`${baseUrl}/booking-times/?date=${time}`);
+		const res = await axios.get(
+			`${baseUrl}/booking-times/?date=${time}&barbery=${barberId}`,
+			{
+				barbery: barberId,
+			}
+		);
 		return res.data.results;
 	} catch (err) {
 		throw err;

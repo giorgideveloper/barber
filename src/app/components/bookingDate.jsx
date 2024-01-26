@@ -6,7 +6,7 @@ import { bookingTime } from '../api/api';
 import moment from 'moment';
 import Hours from './hours';
 
-export default function BookingDate({ setFreeHour, setDay }) {
+export default function BookingDate({ setFreeHour, setDay, barberId }) {
 	const [timeBooking, setTimeBooking] = useState('');
 	const [time, setTime] = useState('');
 	const [showHours, setShowHours] = useState(false);
@@ -14,15 +14,17 @@ export default function BookingDate({ setFreeHour, setDay }) {
 	useEffect(() => {
 		const fetchTime = async () => {
 			try {
-				const response = await bookingTime(time);
-				setTimeBooking(response);
+				if (barberId) {
+					const response = await bookingTime(time, barberId);
+					setTimeBooking(response);
+				}
 			} catch (err) {
 				console.log(err);
 			}
 		};
 		setDay(time);
 		fetchTime();
-	}, [time]);
+	}, [time, barberId]);
 
 	//Flatpickr options
 	const options = {

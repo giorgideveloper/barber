@@ -14,7 +14,7 @@ export default function Booking() {
 	const [smsCodeStatus, setSmsCodeStatus] = useState(false);
 	const [checkCode, setCheckCode] = useState('');
 	const [barber, setBarber] = useState('');
-	console.log('🚀 ~ Booking ~ barber:', barber);
+	const [barberId, setBarberId] = useState('');
 
 	const [user, setUser] = useState({
 		service: null,
@@ -31,7 +31,7 @@ export default function Booking() {
 		customer_phone: mobile,
 		...user,
 	};
-	console.log(myObg);
+
 	let name, value;
 
 	const data = e => {
@@ -135,7 +135,7 @@ export default function Booking() {
 										className='form-select shadow-sm'
 										id='floatingSelectGrid'
 										name='barbery'
-										onChange={data}
+										onChange={e => setBarberId(e.target.value)}
 									>
 										<option value={''}>არჩევა</option>
 										{barber &&
@@ -193,7 +193,11 @@ export default function Booking() {
 							</div>
 						</div>
 					</div>
-					<BookingDate setFreeHour={setFreeHour} setDay={setDay} />
+					<BookingDate
+						setFreeHour={setFreeHour}
+						setDay={setDay}
+						barberId={barberId}
+					/>
 					<div className='row'>
 						<div className='col-md-6 col-12 mt-4'>
 							<button
