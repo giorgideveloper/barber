@@ -10,6 +10,14 @@ export const usersBookings = async () => {
 		throw err;
 	}
 };
+export const allBarber = async () => {
+	try {
+		const res = await axios.get(`${baseUrl}/barbery/`);
+		return res.data.results;
+	} catch (err) {
+		throw err;
+	}
+};
 
 export const bookingTime = async time => {
 	try {
@@ -24,6 +32,24 @@ export const workingHours = async () => {
 	try {
 		const res = await axios.get(`${baseUrl}/time`);
 		return res.data.results;
+	} catch (err) {
+		throw err;
+	}
+};
+export const bookingSmsCode = async mobile => {
+	try {
+		const res = await axios.post(
+			`${baseUrl}/bookings/sms_code/`,
+			{
+				mobile_number: mobile,
+			},
+			{
+				headers: {
+					'Content-Type': 'application/json',
+				},
+			}
+		);
+		return res.data;
 	} catch (err) {
 		throw err;
 	}

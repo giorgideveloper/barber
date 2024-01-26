@@ -50,7 +50,7 @@ export default function Hours({ showHours, bookings, setFreeHour }) {
 								onChange={e => setFreeHour(e.target.value)}
 							/>
 							<label
-								className='btn btn-secondary my-radio'
+								className='btn btn-success my-radio'
 								htmlFor={index}
 								// TODO
 							>
