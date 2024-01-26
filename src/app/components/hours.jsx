@@ -34,14 +34,15 @@ export default function Hours({ showHours, bookings, setFreeHour }) {
 	}
 
 	return (
-		<div>
+		<div className='mt-3'>
 			{showHours
 				? finalBookings &&
 				  finalBookings?.map((booking, index) => (
 						<>
 							<input
+								key={index}
 								type='radio'
-								className='btn-check my-radio'
+								className='btn-check my-radio '
 								name='options' // TODO
 								id={index} // TODO
 								autoComplete='off'
