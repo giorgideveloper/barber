@@ -20,7 +20,7 @@ export default function Booking() {
 		service: null,
 		customer_name: '',
 		message: '',
-		barbery: '',
+
 		created_at: new Date(),
 	});
 
@@ -29,6 +29,7 @@ export default function Booking() {
 		time: freeHour,
 		sms_code: checkCode,
 		customer_phone: mobile,
+		barbery: barberId,
 		...user,
 	};
 
@@ -110,105 +111,118 @@ export default function Booking() {
 				</div>
 			) : (
 				<>
-					<div className='col-12 col-md-6 mt-3'>
-						<div className='row g-2'>
-							<h3>აირჩიეთ სერვისი</h3>
-							<div className='col-md'>
-								<div className='form-floating'>
-									<select
-										className='form-select shadow-sm'
-										id='floatingSelectGrid'
-										name='service'
-										onChange={data}
-									>
-										<option value='0'>არჩევა</option>
-										<option value='1'>თმის შეჭრა</option>
-										<option value='2'>წვერის შეჭრა</option>
-										<option value='3'>Three</option>
-									</select>
-									<label htmlFor='floatingSelectGrid'>სერვიზი</label>
+					<form
+						className='row g-3  needs-validation'
+						onSubmit={handleBooking}
+						novalidate
+					>
+						<div className='col-12 col-md-6 mt-3'>
+							<div className='row g-2'>
+								<h3>აირჩიეთ სერვისი</h3>
+								<div className='col-md'>
+									<div className='form-floating'>
+										<select
+											className='form-select shadow-sm'
+											id='validationCustom01'
+											name='service'
+											onChange={data}
+											required
+										>
+											<option value='0'>არჩევა</option>
+											<option value='1'>თმის შეჭრა</option>
+											<option value='2'>წვერის შეჭრა</option>
+											<option value='3'>Three</option>
+										</select>
+										<label htmlFor='validationCustom01'>სერვიზი</label>
+										<div className='valid-feedback'>Looks good!</div>
+									</div>
+								</div>
+								<div className='col-md'>
+									<div className='form-floating'>
+										<select
+											className='form-select shadow-sm'
+											id='validationCustom01'
+											name='barbery'
+											onChange={e => setBarberId(e.target.value)}
+											required
+										>
+											<option value={''}>არჩევა</option>
+											{barber &&
+												barber?.map(res => (
+													// eslint-disable-next-line react/jsx-key
+													<option key={res.id} value={res.id}>
+														{res.barber_name}
+													</option>
+												))}
+										</select>
+										<label htmlFor='validationCustom01'>ბარბერი</label>
+									</div>
 								</div>
 							</div>
-							<div className='col-md'>
-								<div className='form-floating'>
-									<select
-										className='form-select shadow-sm'
-										id='floatingSelectGrid'
-										name='barbery'
-										onChange={e => setBarberId(e.target.value)}
-									>
-										<option value={''}>არჩევა</option>
-										{barber &&
-											barber?.map(res => (
-												// eslint-disable-next-line react/jsx-key
-												<option key={res.id} value={res.id}>
-													{res.barber_name}
-												</option>
-											))}
-									</select>
-									<label htmlFor='floatingSelectGrid'>ბარბერი</label>
+							<div className='row mt-3 g-2'>
+								<h3>შენი ინფორმაცია</h3>
+								<div className='col-md'>
+									<div className='form-floating'>
+										<input
+											type='text'
+											className='form-control shadow-sm'
+											id='validationDefault01'
+											placeholder='სახელი'
+											name='customer_name'
+											onChange={data}
+											required
+										/>
+										<label htmlFor='validationDefault01'>
+											{' '}
+											კლიენტის სახელი
+										</label>
+									</div>
+								</div>
+								<div className='col-md'>
+									<div className='form-floating'>
+										<input
+											type='tel'
+											className='form-control shadow-sm'
+											id='validationCustom01'
+											placeholder='ნომერი'
+											name='customer_phone'
+											onChange={e => setMobile(e.target.value)}
+											required
+										/>
+										<label htmlFor='validationCustom01'>
+											კლიენტის ტელეფონი
+										</label>
+										<div className='valid-feedback'>Looks good!</div>
+									</div>
+								</div>
+								<div className='col-md-12 mt-4'>
+									<div className='form-floating'>
+										<textarea
+											className='form-control shadow-sm'
+											placeholder='Leave a comment here'
+											id='floatingTextarea2'
+											style={{ height: 100 }}
+											name='message'
+											onChange={data}
+										></textarea>
+										<label htmlFor='floatingTextarea2'>Comments</label>
+									</div>
 								</div>
 							</div>
 						</div>
-						<div className='row mt-3 g-2'>
-							<h3>შენი ინფორმაცია</h3>
-							<div className='col-md'>
-								<div className='form-floating'>
-									<input
-										type='text'
-										className='form-control shadow-sm'
-										id='floatingInputGrid'
-										placeholder='სახელი'
-										name='customer_name'
-										onChange={data}
-									/>
-									<label htmlFor='floatingInputGrid'> კლიენტის სახელი</label>
-								</div>
-							</div>
-							<div className='col-md'>
-								<div className='form-floating'>
-									<input
-										type='tel'
-										className='form-control shadow-sm'
-										id='floatingInputGrid'
-										placeholder='ნომერი'
-										name='customer_phone'
-										onChange={e => setMobile(e.target.value)}
-									/>
-									<label htmlFor='floatingInputGrid'>კლიენტის ტელეფონი</label>
-								</div>
-							</div>
-							<div className='col-md-12 mt-4'>
-								<div className='form-floating'>
-									<textarea
-										className='form-control shadow-sm'
-										placeholder='Leave a comment here'
-										id='floatingTextarea2'
-										style={{ height: 100 }}
-										name='message'
-										onChange={data}
-									></textarea>
-									<label htmlFor='floatingTextarea2'>Comments</label>
-								</div>
+						<BookingDate
+							setFreeHour={setFreeHour}
+							setDay={setDay}
+							barberId={barberId}
+						/>
+						<div className='row'>
+							<div className='col-md-6 col-12 mt-4'>
+								<button type='submit' className='btn btn-success shadow-sm'>
+									ჯავშანის გაკეთება
+								</button>
 							</div>
 						</div>
-					</div>
-					<BookingDate
-						setFreeHour={setFreeHour}
-						setDay={setDay}
-						barberId={barberId}
-					/>
-					<div className='row'>
-						<div className='col-md-6 col-12 mt-4'>
-							<button
-								type='button'
-								onClick={handleBooking}
-								className='btn btn-success shadow-sm'
-							>
-								ჯავშანის გაკეთება
-							</button>
-						</div>
-					</div>
+					</form>
 				</>
 			)}
 		</>

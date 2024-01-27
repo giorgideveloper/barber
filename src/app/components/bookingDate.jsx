@@ -24,7 +24,7 @@ export default function BookingDate({ setFreeHour, setDay, barberId }) {
 		};
 		setDay(time);
 		fetchTime();
-	}, [time, barberId]);
+	}, [time, barberId, setDay]);
 
 	//Flatpickr options
 	const options = {
