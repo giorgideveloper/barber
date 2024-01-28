@@ -19,6 +19,23 @@ export const allBarber = async () => {
 	}
 };
 
+export const barberIds = async id => {
+	try {
+		const res = await axios.get(`${baseUrl}/barbery/${id}`);
+		return res.data;
+	} catch (err) {
+		throw err;
+	}
+};
+
+export const service = async () => {
+	try {
+		const res = await axios.get(`${baseUrl}/services/`);
+		return res.data.results;
+	} catch (err) {
+		throw err;
+	}
+};
 export const bookingTime = async (time, barberId) => {
 	try {
 		const res = await axios.get(

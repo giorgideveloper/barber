@@ -1,13 +1,36 @@
 import styles from './page.module.css';
 import Booking from './components/booking';
-import BookingDate from './components/bookingDate';
 
 export default function Home() {
 	return (
 		<main className={styles.main}>
+			<div class='container-fluid'>
+				<div className='row'>
+					<section className='booking-section'>
+						<div
+							className='row'
+							style={{ backgroundSize: '100%; background-repeat: no-repeat;' }}
+						>
+							<div
+								className=' booking-title '
+								style={{
+									backgroundSize: '100%; background-repeat: no-repeat;',
+								}}
+							>
+								<h1>BOOKING</h1>
+								<div
+									className='booking-solid'
+									style={{
+										backgroundSize: '100%; background-repeat: no-repeat;',
+									}}
+								></div>
+							</div>
+						</div>
+					</section>
+				</div>
+			</div>
 			<div className='container'>
 				<div className='row'>
-					<h2 className='text-center mt-3'>Booking Barber</h2>
 					<Booking />
 				</div>
 			</div>

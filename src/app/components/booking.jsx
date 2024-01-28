@@ -20,7 +20,6 @@ export default function Booking() {
 		service: null,
 		customer_name: '',
 		message: '',
-
 		created_at: new Date(),
 	});
 
