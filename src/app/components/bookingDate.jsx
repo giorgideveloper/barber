@@ -28,7 +28,6 @@ export default function BookingDate({ setFreeHour, setDay, barberId }) {
 
 	//Flatpickr options
 	const options = {
-		inline: true,
 		altInputClass: 'hide',
 		dateFormat: 'M d Y',
 		minDate: new Date(),
@@ -49,18 +48,21 @@ export default function BookingDate({ setFreeHour, setDay, barberId }) {
 			firstDayOfWeek: 1, // start week on Monday
 		},
 		onChange: (selectedDates, dateStr, instance) => {
-			setTime(moment(dateStr).format().slice(-30, -15)), setShowHours(true);
+			setTime(moment(dateStr).format().slice(-30, -15));
 		},
 	};
 
 	return (
 		<div>
 			<h4 className='solid'>აირჩიე დრო</h4>
-			<div className='row'>
-				<div className='col-12 col-xl-6 '>
-					<Flatpickr hidden options={options} />
+			<div className='row  g-1'>
+				<div className='col-12 col-xl-12 mt-4'>
+					<Flatpickr
+						placeholder={moment().format('MMMM Do YYYY')}
+						options={options}
+					/>
 				</div>
-				<div className='col-12 col-xl-6'>
+				<div className='col-12 col-xl-12'>
 					{' '}
 					<Hours
 						showHours={showHours}

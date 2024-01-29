@@ -35,31 +35,30 @@ export default function Hours({ showHours, bookings, setFreeHour }) {
 
 	return (
 		<div className='mt-3'>
-			{showHours
-				? finalBookings &&
-				  finalBookings?.map((booking, index) => (
-						<>
-							<input
-								key={index}
-								type='radio'
-								className='btn-check my-radio '
-								name='options' // TODO
-								id={index} // TODO
-								autoComplete='off'
-								value={booking.id}
-								disabled={booking.booked}
-								onChange={e => setFreeHour(e.target.value)}
-							/>
-							<label
-								className='btn btn-success my-radio'
-								htmlFor={index}
-								// TODO
-							>
-								{booking.time.slice(0, 5)}
-							</label>
-						</>
-				  ))
-				: ''}
+			<h4 className='solid'>მონიშნე დრო</h4>
+			{finalBookings &&
+				finalBookings?.map((booking, index) => (
+					<>
+						<input
+							key={index}
+							type='radio'
+							className='btn-check my-radio '
+							name='options' // TODO
+							id={index} // TODO
+							autoComplete='off'
+							value={booking.id}
+							disabled={booking.booked}
+							onChange={e => setFreeHour(e.target.value)}
+						/>
+						<label
+							className='btn btn-primary my-radio'
+							htmlFor={index}
+							// TODO
+						>
+							{booking.time.slice(0, 5)}
+						</label>
+					</>
+				))}
 		</div>
 	);
 }

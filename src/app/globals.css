@@ -2,12 +2,83 @@ body{
   background-color: #e9e9e9 !important;
 
 }
+@media (min-width: 1400px) {
+.container-xxl,
+  .container-xl,
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container{max-width: 1070px !important;}
+}
+@media (min-width: 980px) and (max-width: 1199px){.container,
+.container-lg,
+.container-md,
+.container-sm {
+  --bs-gutter-x: 12rem;
+  min-width: 95% !important;
+    padding-right: 6rem !important;
+      padding-left: 6rem !important;
+  } 
+}
+@media(max-width:1024px){
+.barber-checkbox .row{
+    justify-content: center !important;
+  }
+  .barber-checkbox .btn{
+    margin-bottom: 1em !important;
+  }
+  .text-area{
+    margin-top: -3.5em !important;
+  }
+}
+.text-area {
+  margin-top: 1.5em !important;
+}
+.btn-primary {
+  background-color: #70492F !important;
+  border-color: #70492F !important;
+}
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:visited,
+.btn-primary:focus{
+  background-color: #2c1d13 !important;
+    border-color: #70492F !important;
+}
 
+.booking-form input {
+  height:2.8em !important;
+  padding: 1em;
+}
+.booking-form label {
+  font-size: 14px !important;
+  padding:3px !important;
+}
+
+.booking-form .form-floating input {
+  min-height: 2.8em !important;
+    padding: 1em !important;
+}
 .flatpickr-current-month{
   display:none !important;
 }
 .my-radio{
-  margin: 0.2em!important;
+  min-width: 62px;
+    font-size: 12px;
+    vertical-align: middle;
+    text-align: center;
+    cursor: pointer;
+    /* background-color: #70492F !important; */
+    color: white;
+    padding: 0px;
+    margin: 0 8px 8px 0;
+    border:none !important;
+    border-radius:1px !important  
+
+}
+
+.my-radio:focus{
+  background-color:#c0c0c0 !important;
 }
 .booking-title{
 text-align: center;
@@ -24,13 +95,11 @@ text-align: center;
 .booking-section{
   background-image: url('../img/booking-cover.jpg');
     background-color: #cccccc;
-      height: 500px;
+      height: 376px;
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
       position: relative;
-
-
 }
 .booking-solid {
   position: relative;
@@ -63,7 +132,18 @@ text-align: center;
 
 .booking-form h4{
   color: #fff !important;
-      
+}
+.booking-form textarea{
+  margin-top: 5.8em;
+  border-radius: 1px;
+}
+.booking-form input{
+  border-radius: 1px;
+}
+.booking-form button {
+  background-color:#70492F !important;
+  border-radius: 1px;
+  border: 1px solid #70492F;
 }
 h4.solid {
   position: relative !important;
@@ -71,6 +151,9 @@ h4.solid {
 }
 .solid{
 position: relative !important;
+margin-bottom: 20px !important;
+margin-top: 30px !important;
+
 }
 h4::after {
   content: "";
@@ -103,7 +186,7 @@ h4::after {
 .form-control{
   background-color: #101010 !important;
   color: rgb(182, 182, 182) !important;
- border: 1px solid #cf814d !important;
+ border: 1px solid #70492F !important;
 }
 .barber-radio input[type="radio"],
 .de_form input[type="checkbox"] {
@@ -112,11 +195,12 @@ h4::after {
 }
 .barber-radio img{
       width: 100%;
-      height: 200px;
+      height: 140px !important;
       padding: 3px;
       opacity: 1;
-      background: #cf814d;
+      background: #70492F;
       cursor: pointer;
+      object-fit: cover;
      
       
 }
@@ -143,6 +227,7 @@ h4::after {
       float: left;
       text-align: center;
       margin-right: 5%;
+      color: #c0c0c0 !important;
   }
     [type=radio] {
       position: absolute;
@@ -169,3 +254,35 @@ h4::after {
     [type=radio]:checked+img {
       outline: 2px solid #cf814d;
     }
+    .barber-checkbox label{
+          background-color:#70492F;
+          color: #fff;
+          padding: 2px 15px 2px 15px;
+          border-radius: 0.1px !important;
+          border-color: #70492F !important;
+          width: 100%;
+    }
+    .barber-checkbox .btn-check:checked+.btn,
+        :not(.btn-check)+.btn:active,
+        .btn:first-child:active,
+        .btn.active,
+        .btn.show {
+      background-color: #494542 !important;
+    }
+
+             .barber-checkbox .btn-check+.btn:hover {
+          color: #fff;
+        background-color: #494542 !important;
+          border-color: #494542 !important;
+        }
+
+ .flatpickr-input{
+  background-color: #101010;
+  border-color: #70492F !important;
+  outline: none;
+  border: 1px solid;
+  color: white;
+  width: 100%;
+  height:50px
+ 
+ }

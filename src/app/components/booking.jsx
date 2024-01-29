@@ -1,7 +1,7 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import BookingDate from './bookingDate';
-import { allBarber, bookingCreate, bookingSmsCode } from '../api/api';
+import { allBarber, bookingCreate, bookingSmsCode, service } from '../api/api';
 import toast from '@/helper/toast';
 import { useRouter } from 'next/navigation';
 import Swal from 'sweetalert2';
@@ -15,6 +15,7 @@ export default function Booking() {
 	const [checkCode, setCheckCode] = useState('');
 	const [barber, setBarber] = useState('');
 	const [barberId, setBarberId] = useState('');
+	const [barberService, setBarberService] = useState([]);
 
 	const [user, setUser] = useState({
 		service: null,
@@ -22,7 +23,7 @@ export default function Booking() {
 		message: '',
 		created_at: new Date(),
 	});
-
+	console.log(user);
 	let myObg = {
 		date: day,
 		time: freeHour,
@@ -73,15 +74,19 @@ export default function Booking() {
 			console.log(error);
 		}
 	};
-
+	const barberData = async () => {
+		const res = await allBarber();
+		//TODO Status 200
+		setBarber(res);
+	};
+	const getService = async () => {
+		const res = await service();
+		setBarberService(res);
+	};
 	// Get barber
 	useEffect(() => {
-		const barberData = async () => {
-			const res = await allBarber();
-
-			setBarber(res);
-		};
 		barberData();
+		getService();
 	}, []);
 	return (
 		<>
@@ -115,32 +120,74 @@ export default function Booking() {
 						onSubmit={handleBooking}
 						novalidate
 					>
-						<div className='col-12 col-md-6 mt-3'>
-							<div className='row g-2'>
+						<div className='barber-checkbox'>
+							<div className='row'>
 								<h4 className='solid'>აირჩიეთ სერვისი</h4>
-								<div className='col-md '>
-									<div className='form-floating  '>
-										<select
-											className='form-select shadow-sm from-inputs '
-											id='validationCustom01'
-											name='service'
-											onChange={data}
-											required
-										>
-											<option value='0'>არჩევა</option>
-											<option value='1'>თმის შეჭრა</option>
-											<option value='2'>წვერის შეჭრა</option>
-											<option value='3'>Three</option>
-										</select>
-										<label htmlFor='validationCustom01 '>სერვიზი</label>
-										<div className='valid-feedback'>Looks good!</div>
+								{barberService &&
+									barberService.map(result => (
+										// eslint-disable-next-line react/jsx-key
+										<div className='col-xl-3 col-md-6' key={result.id}>
+											{' '}
+											<input
+												type='checkbox'
+												className='btn-check'
+												id={`result.id${result.id}`}
+												autoComplete='off'
+												onChange={data}
+												name='service'
+												value={result.id}
+											/>
+											<label
+												className='btn btn-primary'
+												htmlFor={`result.id${result.id}`}
+											>
+												{result.service_name}
+											</label>
+										</div>
+									))}
+							</div>
+						</div>
+
+						<div className='col-12 col-md-6  mt-3'>
+							<div className='row g-2 '>
+								<h4 className='solid'>აირჩიეთ ბარბერი</h4>
+
+								<div className='col-md'>
+									<div className='row g-2'>
+										<div className='col-md-12 '>
+											<div className='mt-3 d-flex barber-radio'>
+												{barber &&
+													barber?.map(res => (
+														// eslint-disable-next-line react/jsx-key
+														<label key={res.id}>
+															<input
+																type='radio'
+																name='bookmarked_images'
+																value={res.id}
+																onChange={e => setBarberId(e.target.value)}
+															/>
+															<img src={`${res.image}`} alt='Image 1' />
+															{res.barber_name}
+														</label>
+													))}
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>
+						</div>
+						<div className='col-12 col-md-6 mt-3 '>
+							<BookingDate
+								setFreeHour={setFreeHour}
+								setDay={setDay}
+								barberId={barberId}
+							/>
+						</div>
 
+						<div className='col-12 col-md-6 mt-3'>
 							<div className='row mt-3 g-2'>
 								<h4 className='solid'>შენი ინფორმაცია</h4>
-								<div className='col-md'>
+								<div className='col-md-12'>
 									<div className='form-floating'>
 										<input
 											type='text'
@@ -161,7 +208,7 @@ export default function Booking() {
 									<div className='form-floating'>
 										<input
 											type='tel'
-											className='form-control shadow-sm from-inputs'
+											className='form-control shadow-sm from-inputs mt-4'
 											id='validationCustom01'
 											placeholder='ნომერი'
 											name='customer_phone'
@@ -174,61 +221,25 @@ export default function Booking() {
 										<div className='valid-feedback'>Looks good!</div>
 									</div>
 								</div>
-								<div className='col-md-12 mt-4'>
-									<div className='form-floating'>
-										<textarea
-											className='form-control shadow-sm from-inputs'
-											placeholder='Leave a comment here'
-											id='floatingTextarea2'
-											style={{ height: 100 }}
-											name='message'
-											onChange={data}
-										></textarea>
-										<label htmlFor='floatingTextarea2' className=''>
-											Comments
-										</label>
-									</div>
-								</div>
 							</div>
 						</div>
-						<div className='col-12 col-md-6  mt-3'>
-							<div className='row g-2 '>
-								<h4 className='solid'>აირჩიეთ ბარბერი</h4>
-
-								<div className='col-md'>
-									<div className='row'>
-										<div className='col-md-12 '>
-											<div className='mt-3 d-flex barber-radio'>
-												{barber &&
-													barber?.map(res => (
-														// eslint-disable-next-line react/jsx-key
-														<label key={res.id}>
-															<input
-																type='radio'
-																name='bookmarked_images'
-																value={res.id}
-																onChange={e => setBarberId(e.target.value)}
-															/>
-															<img
-																src='https://cdn4.vectorstock.com/i/1000x1000/53/48/trendy-barber-man-vector-35975348.jpg'
-																alt='Image 1'
-															/>
-															{res.barber_name}
-														</label>
-													))}
-											</div>
-										</div>
-									</div>
-								</div>
+						<div className='col-md-6  text-area'>
+							<div className='form-floating'>
+								<textarea
+									className='form-control shadow-sm from-inputs'
+									placeholder='Leave a comment here'
+									id='floatingTextarea2'
+									style={{ height: 120 }}
+									name='message'
+									onChange={data}
+								></textarea>
+								<label htmlFor='floatingTextarea2' className=''>
+									Comments
+								</label>
 							</div>
-							<BookingDate
-								setFreeHour={setFreeHour}
-								setDay={setDay}
-								barberId={barberId}
-							/>
 						</div>
-						<div className='row'>
-							<div className='col-md-6 col-12 mt-4'>
+						<div className='row justify-content-center text-center'>
+							<div className='col-md-12 col-12 mt-4'>
 								<button type='submit' className='btn btn-success shadow-sm'>
 									ჯავშანის გაკეთება
 								</button>
