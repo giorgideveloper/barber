@@ -14,12 +14,10 @@ body{
 .container-lg,
 .container-md,
 .container-sm {
-  --bs-gutter-x: 12rem;
-  min-width: 95% !important;
-    padding-right: 6rem !important;
-      padding-left: 6rem !important;
-  } 
-}
+  
+      max-width: 800px !important;
+    
+}}
 @media(max-width:1024px){
 .barber-checkbox .row{
     justify-content: center !important;
