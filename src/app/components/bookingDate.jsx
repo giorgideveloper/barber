@@ -54,10 +54,10 @@ export default function BookingDate({ setFreeHour, setDay, barberId }) {
 	};
 
 	return (
-		<div className='col-12 col-md-6  mt-3'>
-			<h3>აირჩიე დრო</h3>
+		<div>
+			<h4 className='solid'>აირჩიე დრო</h4>
 			<div className='row'>
-				<div className='col-12 col-xl-6'>
+				<div className='col-12 col-xl-6 '>
 					<Flatpickr hidden options={options} />
 				</div>
 				<div className='col-12 col-xl-6'>

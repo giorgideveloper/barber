@@ -111,17 +111,17 @@ export default function Booking() {
 			) : (
 				<>
 					<form
-						className='row g-3  needs-validation'
+						className='row g-3 mb-5 needs-validation booking-form'
 						onSubmit={handleBooking}
 						novalidate
 					>
 						<div className='col-12 col-md-6 mt-3'>
 							<div className='row g-2'>
-								<h3>აირჩიეთ სერვისი</h3>
-								<div className='col-md'>
-									<div className='form-floating'>
+								<h4 className='solid'>აირჩიეთ სერვისი</h4>
+								<div className='col-md '>
+									<div className='form-floating  '>
 										<select
-											className='form-select shadow-sm'
+											className='form-select shadow-sm from-inputs '
 											id='validationCustom01'
 											name='service'
 											onChange={data}
@@ -132,39 +132,19 @@ export default function Booking() {
 											<option value='2'>წვერის შეჭრა</option>
 											<option value='3'>Three</option>
 										</select>
-										<label htmlFor='validationCustom01'>სერვიზი</label>
+										<label htmlFor='validationCustom01 '>სერვიზი</label>
 										<div className='valid-feedback'>Looks good!</div>
 									</div>
 								</div>
-								<div className='col-md'>
-									<div className='form-floating'>
-										<select
-											className='form-select shadow-sm'
-											id='validationCustom01'
-											name='barbery'
-											onChange={e => setBarberId(e.target.value)}
-											required
-										>
-											<option value={''}>არჩევა</option>
-											{barber &&
-												barber?.map(res => (
-													// eslint-disable-next-line react/jsx-key
-													<option key={res.id} value={res.id}>
-														{res.barber_name}
-													</option>
-												))}
-										</select>
-										<label htmlFor='validationCustom01'>ბარბერი</label>
-									</div>
-								</div>
 							</div>
+
 							<div className='row mt-3 g-2'>
-								<h3>შენი ინფორმაცია</h3>
+								<h4 className='solid'>შენი ინფორმაცია</h4>
 								<div className='col-md'>
 									<div className='form-floating'>
 										<input
 											type='text'
-											className='form-control shadow-sm'
+											className='form-control from-inputs shadow-sm'
 											id='validationDefault01'
 											placeholder='სახელი'
 											name='customer_name'
@@ -181,7 +161,7 @@ export default function Booking() {
 									<div className='form-floating'>
 										<input
 											type='tel'
-											className='form-control shadow-sm'
+											className='form-control shadow-sm from-inputs'
 											id='validationCustom01'
 											placeholder='ნომერი'
 											name='customer_phone'
@@ -197,23 +177,56 @@ export default function Booking() {
 								<div className='col-md-12 mt-4'>
 									<div className='form-floating'>
 										<textarea
-											className='form-control shadow-sm'
+											className='form-control shadow-sm from-inputs'
 											placeholder='Leave a comment here'
 											id='floatingTextarea2'
 											style={{ height: 100 }}
 											name='message'
 											onChange={data}
 										></textarea>
-										<label htmlFor='floatingTextarea2'>Comments</label>
+										<label htmlFor='floatingTextarea2' className=''>
+											Comments
+										</label>
 									</div>
 								</div>
 							</div>
 						</div>
-						<BookingDate
-							setFreeHour={setFreeHour}
-							setDay={setDay}
-							barberId={barberId}
-						/>
+						<div className='col-12 col-md-6  mt-3'>
+							<div className='row g-2 '>
+								<h4 className='solid'>აირჩიეთ ბარბერი</h4>
+
+								<div className='col-md'>
+									<div className='row'>
+										<div className='col-md-12 '>
+											<div className='mt-3 d-flex barber-radio'>
+												{barber &&
+													barber?.map(res => (
+														// eslint-disable-next-line react/jsx-key
+														<label key={res.id}>
+															<input
+																type='radio'
+																name='bookmarked_images'
+																value={res.id}
+																onChange={e => setBarberId(e.target.value)}
+															/>
+															<img
+																src='https://cdn4.vectorstock.com/i/1000x1000/53/48/trendy-barber-man-vector-35975348.jpg'
+																alt='Image 1'
+															/>
+															{res.barber_name}
+														</label>
+													))}
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<BookingDate
+								setFreeHour={setFreeHour}
+								setDay={setDay}
+								barberId={barberId}
+							/>
+						</div>
 						<div className='row'>
 							<div className='col-md-6 col-12 mt-4'>
 								<button type='submit' className='btn btn-success shadow-sm'>
