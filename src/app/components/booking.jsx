@@ -176,7 +176,7 @@ export default function Booking() {
 								</div>
 							</div>
 						</div>
-						<div className='col-12 col-md-6 mt-3 '>
+						<div className='col-12 col-md-6 booking-date '>
 							<BookingDate
 								setFreeHour={setFreeHour}
 								setDay={setDay}
@@ -198,10 +198,7 @@ export default function Booking() {
 											onChange={data}
 											required
 										/>
-										<label htmlFor='validationDefault01'>
-											{' '}
-											კლიენტის სახელი
-										</label>
+										<label htmlFor='validationDefault01'> სახელი</label>
 									</div>
 								</div>
 								<div className='col-md'>

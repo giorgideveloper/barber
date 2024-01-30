@@ -30,7 +30,7 @@ export default function Home() {
 				</div>
 			</div>
 			<div className='container'>
-				<div className='row'>
+				<div className='row justify-content-center'>
 					<Booking />
 				</div>
 			</div>

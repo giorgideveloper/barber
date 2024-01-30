@@ -14,9 +14,7 @@ body{
 .container-lg,
 .container-md,
 .container-sm {
-  
       max-width: 800px !important;
-    
 }}
 @media(max-width:1024px){
 .barber-checkbox .row{
@@ -28,6 +26,21 @@ body{
   .text-area{
     margin-top: -3.5em !important;
   }
+}
+@media (max-width:425px){
+  .booking-date {
+    margin-top: 9em !important;
+    
+  }
+    .booking-form textarea {
+      margin-top: 1em !important; 
+    
+    }
+}
+
+
+.barber-checkbox .btn {
+  margin-bottom: 1em !important;
 }
 .text-area {
   margin-top: 1.5em !important;
@@ -45,12 +58,12 @@ body{
 }
 
 .booking-form input {
-  height:2.8em !important;
+  max-height:2.8em !important;
   padding: 1em;
 }
 .booking-form label {
   font-size: 14px !important;
-  padding:3px !important;
+  height: 2em !important;
 }
 
 .booking-form .form-floating input {
@@ -77,6 +90,9 @@ body{
 
 .my-radio:focus{
   background-color:#c0c0c0 !important;
+}
+.my-radio:checked {
+  background-color: #c0c0c0 !important;
 }
 .booking-title{
 text-align: center;
@@ -172,8 +188,9 @@ h4::after {
   inset: 1rem 0.375rem;
   z-index: -1;
   height: 1.5em;
+  top: 50;
   content: "";
-  background-color: #101010 !important;
+  background-color: #10101000 !important;
   color: rgb(226, 226, 226) !important;
   border-radius: var(--bs-border-radius);
 }
@@ -199,9 +216,8 @@ h4::after {
       background: #70492F;
       cursor: pointer;
       object-fit: cover;
-     
-      
 }
+
 
 .barber-radio input[type="radio"]+label,
 .barber-radio input[type="checkbox"]+label {
@@ -250,7 +266,7 @@ h4::after {
   
     /* CHECKED STYLES */
     [type=radio]:checked+img {
-      outline: 2px solid #cf814d;
+      outline: 2px solid #cf814d !important;
     }
     .barber-checkbox label{
           background-color:#70492F;
