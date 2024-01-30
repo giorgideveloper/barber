@@ -38,7 +38,8 @@ export default function Hours({ showHours, bookings, setFreeHour }) {
 			<h4 className='solid'>მონიშნე დრო</h4>
 			{finalBookings &&
 				finalBookings?.map((booking, index) => (
-					<>
+					// eslint-disable-next-line react/jsx-key
+					<div className='d-inline' key={index}>
 						<input
 							key={index}
 							type='radio'
@@ -57,7 +58,7 @@ export default function Hours({ showHours, bookings, setFreeHour }) {
 						>
 							{booking.time.slice(0, 5)}
 						</label>
-					</>
+					</div>
 				))}
 		</div>
 	);

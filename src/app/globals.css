@@ -39,7 +39,7 @@ body {
   }
 }
 
-@media (max-width:425px) {
+@media (max-width:758px) {
   .booking-date {
     margin-top: 9em !important;
 
@@ -51,6 +51,14 @@ body {
   }
 }
 
+.booking-date input {
+  width: 100% !important;
+  background-color: #00000000 !important;
+  border-color: #70492F !important;
+  border: 1px solid #70492F !important;
+  border-radius: 1px !important;
+  color: #cccccc !important;
+}
 
 .barber-checkbox .btn {
   margin-bottom: 1em !important;
@@ -80,6 +88,7 @@ body {
 
 .booking-form label {
   font-size: 14px !important;
+
   height: 2em !important;
 }
 
@@ -218,17 +227,29 @@ h4::after {
   content: "";
   background-color: #10101000 !important;
   color: rgb(226, 226, 226) !important;
-  border-radius: var(--bs-border-radius);
+
+
 }
 
 .form-floating {
   color: rgb(182, 182, 182) !important;
 }
 
+.form-floating label {
+  padding-top: 7px !important;
+}
+
 .form-control {
   background-color: #101010 !important;
   color: rgb(182, 182, 182) !important;
   border: 1px solid #70492F !important;
+}
+
+.form-floating>.form-control:focus~label,
+.form-floating>.form-control:not(:placeholder-shown)~label,
+.form-floating>.form-control-plaintext~label,
+.form-floating>.form-select~label {
+  display: none !important;
 }
 
 .barber-radio input[type="radio"],

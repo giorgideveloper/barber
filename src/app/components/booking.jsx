@@ -23,7 +23,7 @@ export default function Booking() {
 		message: '',
 		created_at: new Date(),
 	});
-	console.log(user);
+
 	let myObg = {
 		date: day,
 		time: freeHour,
@@ -43,9 +43,11 @@ export default function Booking() {
 
 	const sendSms = () => {
 		try {
-			if (bookingSmsCode(mobile)) {
-				setSmsCodeStatus(true);
-			}
+			const res = bookingSmsCode(mobile);
+			cosnole.log(res.status);
+			// if () {
+			// 	setSmsCodeStatus(true);
+			// }
 		} catch (err) {
 			console.log(err);
 		}
@@ -68,8 +70,8 @@ export default function Booking() {
 		try {
 			// bookingCreate(myObg);
 			sendSms();
-			toast('success', 'სმს კოდი გამოგზავნილია');
-			router.push('/');
+			// toast('success', 'სმს კოდი გამოგზავნილია');
+			// router.push('/');
 		} catch (error) {
 			console.log(error);
 		}
@@ -117,8 +119,7 @@ export default function Booking() {
 				<>
 					<form
 						className='row g-3 mb-5 needs-validation booking-form'
-						onSubmit={handleBooking}
-						novalidate
+						onSubmit={sendSms}
 					>
 						<div className='barber-checkbox'>
 							<div className='row'>
@@ -212,9 +213,7 @@ export default function Booking() {
 											onChange={e => setMobile(e.target.value)}
 											required
 										/>
-										<label htmlFor='validationCustom01'>
-											კლიენტის ტელეფონი
-										</label>
+										<label htmlFor='validationCustom01'>ტელეფონი</label>
 										<div className='valid-feedback'>Looks good!</div>
 									</div>
 								</div>
