@@ -34,7 +34,7 @@ export default function Hours({ showHours, bookings, setFreeHour }) {
 	}
 
 	return (
-		<div className='mt-3'>
+		<div className='mt-3 hours-checkbox '>
 			<h4 className='solid'>მონიშნე დრო</h4>
 			{finalBookings &&
 				finalBookings?.map((booking, index) => (

@@ -131,7 +131,7 @@ export default function Booking() {
 											<input
 												type='checkbox'
 												className='btn-check'
-												id={`result.id${result.id}`}
+												id={`res${result.id}`}
 												autoComplete='off'
 												onChange={data}
 												name='service'
@@ -139,7 +139,7 @@ export default function Booking() {
 											/>
 											<label
 												className='btn btn-primary'
-												htmlFor={`result.id${result.id}`}
+												htmlFor={`res${result.id}`}
 											>
 												{result.service_name}
 											</label>
@@ -148,13 +148,13 @@ export default function Booking() {
 							</div>
 						</div>
 
-						<div className='col-12 col-md-6  mt-3'>
+						<div className='col-12 col-md-6 mt-3'>
 							<div className='row g-2 '>
 								<h4 className='solid'>აირჩიეთ ბარბერი</h4>
 
 								<div className='col-md'>
 									<div className='row g-2'>
-										<div className='col-md-12 '>
+										<div className='col-md-12'>
 											<div className='mt-3 d-flex barber-radio'>
 												{barber &&
 													barber?.map(res => (
