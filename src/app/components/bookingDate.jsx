@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect, useState } from 'react';
+import React, { forwardRef, useEffect, useState } from 'react';
 import 'flatpickr/dist/flatpickr.css';
 import { bookingTime } from '../api/api';
 import moment from 'moment';
@@ -13,10 +13,17 @@ export default function BookingDate({ setFreeHour, setDay, barberId }) {
 	const [time, setTime] = useState('');
 	const [showHours, setShowHours] = useState(false);
 	const [startDate, setStartDate] = useState(new Date());
-	console.log(
-		'🚀 ~ BookingDate ~ startDate:',
-		moment(startDate).format().slice(-30, -15)
-	);
+	// eslint-disable-next-line react/display-name
+	const ExampleCustomInput = forwardRef(({ value, onClick }, ref) => (
+		<button
+			type='button'
+			className='example-custom-input'
+			onClick={onClick}
+			ref={ref}
+		>
+			{value}
+		</button>
+	));
 	useEffect(() => {
 		setTime(moment(startDate).format().slice(-30, -15));
 	}, [startDate]);
@@ -71,7 +78,9 @@ export default function BookingDate({ setFreeHour, setDay, barberId }) {
 						selected={startDate}
 						onChange={date => setStartDate(date)}
 						minDate={new Date()}
+						dateFormat='MMMM d, yyyy'
 						withPortal
+						customInput={<ExampleCustomInput />}
 					/>
 				</div>
 				<div className='col-12 col-xl-12'>

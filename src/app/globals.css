@@ -51,14 +51,6 @@ body {
   }
 }
 
-.booking-date input {
-  width: 100% !important;
-  background-color: #00000000 !important;
-  border-color: #70492F !important;
-  border: 1px solid #70492F !important;
-  border-radius: 1px !important;
-  color: #cccccc !important;
-}
 
 .barber-checkbox .btn {
   margin-bottom: 1em !important;
@@ -185,11 +177,11 @@ body {
   border-radius: 1px;
 }
 
-.booking-form button {
+/* .booking-form button {
   background-color: #70492F !important;
   border-radius: 1px;
   border: 1px solid #70492F;
-}
+} */
 
 h4.solid {
   position: relative !important;
@@ -360,4 +352,16 @@ h4::after {
   color: white;
   width: 100%;
   height: 50px
+}
+
+
+.example-custom-input {
+  width: 100% !important;
+  background-color: #00000000 !important;
+  border-color: #70492F !important;
+  border: 1px solid #70492F !important;
+  border-radius: 1px !important;
+  padding: 0.5em;
+  color: #cccccc !important;
+  cursor: pointer;
 }

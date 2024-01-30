@@ -236,7 +236,7 @@ export default function Booking() {
 						</div>
 						<div className='row justify-content-center text-center'>
 							<div className='col-md-12 col-12 mt-4'>
-								<button type='submit' className='btn btn-success shadow-sm'>
+								<button type='submit' className='btn btn-primary shadow-sm'>
 									ჯავშანის გაკეთება
 								</button>
 							</div>
