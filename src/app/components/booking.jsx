@@ -44,10 +44,10 @@ export default function Booking() {
 	const sendSms = () => {
 		try {
 			const res = bookingSmsCode(mobile);
-			cosnole.log(res.status);
-			// if () {
-			// 	setSmsCodeStatus(true);
-			// }
+
+			if (res) {
+				setSmsCodeStatus(true);
+			}
 		} catch (err) {
 			console.log(err);
 		}
@@ -70,7 +70,7 @@ export default function Booking() {
 		try {
 			// bookingCreate(myObg);
 			sendSms();
-			// toast('success', 'სმს კოდი გამოგზავნილია');
+			toast('success', 'სმს კოდი გამოგზავნილია');
 			// router.push('/');
 		} catch (error) {
 			console.log(error);
@@ -119,7 +119,7 @@ export default function Booking() {
 				<>
 					<form
 						className='row g-3 mb-5 needs-validation booking-form'
-						onSubmit={sendSms}
+						onSubmit={handleBooking}
 					>
 						<div className='barber-checkbox'>
 							<div className='row'>
