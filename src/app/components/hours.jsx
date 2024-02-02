@@ -8,7 +8,11 @@ export default function Hours({ showHours, bookings, setFreeHour }) {
 		const fetchTime = async () => {
 			try {
 				const response = await workingHours();
-				setHours(response);
+				if (response.status === 200) {
+					setHours(response.data.results);
+				} else {
+					console.log('error workingHours');
+				}
 			} catch (err) {
 				console.log(err);
 			}

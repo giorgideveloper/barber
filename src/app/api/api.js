@@ -5,7 +5,7 @@ const baseUrl = 'https://barbery.lumos.com.ge/booking';
 export const usersBookings = async () => {
 	try {
 		const res = await axios.get(`${baseUrl}/bookings`);
-		return res.data.results;
+		return res;
 	} catch (err) {
 		throw err;
 	}
@@ -13,7 +13,7 @@ export const usersBookings = async () => {
 export const allBarber = async () => {
 	try {
 		const res = await axios.get(`${baseUrl}/barbery/`);
-		return res.data.results;
+		return res;
 	} catch (err) {
 		throw err;
 	}
@@ -31,7 +31,7 @@ export const barberIds = async id => {
 export const service = async () => {
 	try {
 		const res = await axios.get(`${baseUrl}/services/`);
-		return res.data.results;
+		return res;
 	} catch (err) {
 		throw err;
 	}
@@ -44,7 +44,7 @@ export const bookingTime = async (time, barberId) => {
 				barbery: barberId,
 			}
 		);
-		return res.data.results;
+		return res;
 	} catch (err) {
 		throw err;
 	}
@@ -53,7 +53,7 @@ export const bookingTime = async (time, barberId) => {
 export const workingHours = async () => {
 	try {
 		const res = await axios.get(`${baseUrl}/time`);
-		return res.data.results;
+		return res;
 	} catch (err) {
 		throw err;
 	}
@@ -71,7 +71,7 @@ export const bookingSmsCode = async mobile => {
 				},
 			}
 		);
-		return res.data;
+		return res;
 	} catch (err) {
 		throw err;
 	}
@@ -90,7 +90,7 @@ export const bookingCreate = async data => {
 				},
 			}
 		);
-		return res.data;
+		return res;
 	} catch (err) {
 		throw err;
 	}

@@ -3,35 +3,23 @@ import React, { useEffect, useState } from 'react';
 import BookingDate from './bookingDate';
 import { allBarber, bookingCreate, bookingSmsCode, service } from '../api/api';
 import toast from '@/helper/toast';
-import { useRouter } from 'next/navigation';
 import Swal from 'sweetalert2';
 
 export default function Booking() {
-	const router = useRouter();
 	const [day, setDay] = useState('');
 	const [freeHour, setFreeHour] = useState('');
 	const [mobile, setMobile] = useState('');
 	const [smsCodeStatus, setSmsCodeStatus] = useState(false);
 	const [checkCode, setCheckCode] = useState('');
-	const [barber, setBarber] = useState('');
+	const [barber, setBarber] = useState([]);
 	const [barberId, setBarberId] = useState('');
 	const [barberService, setBarberService] = useState([]);
-
 	const [user, setUser] = useState({
 		service: null,
 		customer_name: '',
 		message: '',
 		created_at: new Date(),
 	});
-
-	let myObg = {
-		date: day,
-		time: freeHour,
-		sms_code: checkCode,
-		customer_phone: mobile,
-		barbery: barberId,
-		...user,
-	};
 
 	let name, value;
 
@@ -41,50 +29,88 @@ export default function Booking() {
 		setUser({ ...user, [name]: value });
 	};
 
-	const sendSms = () => {
-		try {
-			const res = bookingSmsCode(mobile);
+	//finally object
+	let myObg = {
+		date: day,
+		time: freeHour,
+		sms_code: checkCode,
+		customer_phone: mobile,
+		barbery: barberId,
+		...user,
+	};
 
-			if (res) {
-				setSmsCodeStatus(true);
+	// Get barber
+	const barberData = async () => {
+		try {
+			const res = await allBarber();
+			if (res.status === 200) {
+				setBarber(res.data.results);
+			} else {
+				console.log('error barber data');
 			}
-		} catch (err) {
-			console.log(err);
+		} catch (error) {
+			throw error;
 		}
 	};
 
-	const finalSmsCode = () => {
-		bookingCreate(myObg);
-		Swal.fire({
-			title: 'ჯავშანი მიღებულია',
-			icon: 'success',
-		}).then(result => {
-			if (result.isConfirmed) {
-				window.location = '/';
-			}
-		});
-	};
-
-	// Post request
-	const handleBooking = () => {
+	// Get service
+	const getService = async () => {
 		try {
-			// bookingCreate(myObg);
+			const res = await service();
+			if (res.status === 200) {
+				setBarberService(res.data.results);
+			} else {
+				console.log('error service');
+			}
+		} catch (error) {
+			throw error;
+		}
+	};
+	// Post request
+	const handleBooking = e => {
+		e.preventDefault();
+		try {
 			sendSms();
-			toast('success', 'სმს კოდი გამოგზავნილია');
-			// router.push('/');
 		} catch (error) {
 			console.log(error);
 		}
 	};
-	const barberData = async () => {
-		const res = await allBarber();
-		//TODO Status 200
-		setBarber(res);
+
+	//Send sms code
+	const sendSms = async () => {
+		try {
+			const res = await bookingSmsCode(mobile);
+
+			if (res.status === 201) {
+				setSmsCodeStatus(true);
+				toast('success', 'სმს კოდი გამოგზავნილია');
+			} else {
+				console.log('error sms code');
+			}
+		} catch (err) {
+			console.log('error', 'სმს კოდის გამოგზავნა ვერ მოხერხდა');
+		}
 	};
-	const getService = async () => {
-		const res = await service();
-		setBarberService(res);
+
+	// SMS confirmation and booking reservation
+	const finalSmsCode = async () => {
+		try {
+			const res = await bookingCreate(myObg);
+			if (res.status === 201) {
+				Swal.fire({
+					title: 'ჯავშანი მიღებულია',
+					icon: 'success',
+				}).then(result => {
+					if (result.isConfirmed) {
+						window.location = '/';
+					}
+				});
+			}
+		} catch (error) {
+			toast('error', 'სმს კოდი არასწორია');
+		}
 	};
+
 	// Get barber
 	useEffect(() => {
 		barberData();
