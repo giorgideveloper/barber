@@ -86,13 +86,17 @@ export default function Booking() {
 	//Send sms code
 	const sendSms = async () => {
 		try {
-			const res = await bookingSmsCode(mobile);
+			if (barberId && day && freeHour && user.service) {
+				const res = await bookingSmsCode(mobile);
 
-			if (res.status === 201) {
-				setShowModal(true);
-				toast('success', 'სმს კოდი გამოგზავნილია');
+				if (res.status === 201) {
+					setShowModal(true);
+					toast('success', 'სმს კოდი გამოგზავნილია');
+				} else {
+					console.log('error sms code');
+				}
 			} else {
-				console.log('error sms code');
+				toast('error', 'მონიშნეთ ყველა ველიი');
 			}
 		} catch (err) {
 			console.log('error', 'სმს კოდის გამოგზავნა ვერ მოხერხდა');
