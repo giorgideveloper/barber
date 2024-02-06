@@ -365,3 +365,23 @@ h4::after {
   color: #cccccc !important;
   cursor: pointer;
 }
+.modal-content{
+  background-color: #101010 !important;
+  color: #fff !important;
+  border: 1px solid #101010 !important;
+}
+.modal-content .form-control{
+
+  color: #fff !important;
+
+}
+.modal-input{
+  color: #fff !important;
+}
+
+.modal-header{
+  border: none !important;
+}
+.modal-footer{
+  border: none !important;
+}

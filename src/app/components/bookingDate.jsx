@@ -19,6 +19,7 @@ export default function BookingDate({ setFreeHour, setDay, barberId }) {
 			className='example-custom-input'
 			onClick={onClick}
 			ref={ref}
+			required
 		>
 			{value}
 		</button>
@@ -59,6 +60,7 @@ export default function BookingDate({ setFreeHour, setDay, barberId }) {
 						dateFormat='MMMM d, yyyy'
 						withPortal
 						customInput={<ExampleCustomInput />}
+						required
 					/>
 				</div>
 				<div className='col-12 col-xl-12'>

@@ -11,6 +11,7 @@ export default function BigCalendar() {
 	const [barber, setBarbers] = useState([]);
 	const [barberService, setBarberService] = useState([]);
 	const [workingTime, setWorkingTime] = useState([]);
+	const [page, setPage] = useState(0);
 
 	//Get all booking users
 	const getBookingFc = async () => {
@@ -65,29 +66,30 @@ export default function BigCalendar() {
 		getWorkingTime();
 	}, []);
 
-	for (const b in booking) {
-		for (const n in barber) {
-			if (booking[b].service === barber[n].id) {
-				booking[b].barbery = barber[n].barber_name;
+	if (booking) {
+		for (const b in booking) {
+			for (const n in barber) {
+				if (booking[b].service === barber[n].id) {
+					booking[b].barbery = barber[n].barber_name;
+				}
 			}
 		}
-	}
 
-	for (const b in booking) {
-		for (const n in barberService) {
-			if (booking[b].service === barberService[n].id) {
-				booking[b].service = barberService[n].service_name;
+		for (const b in booking) {
+			for (const n in barberService) {
+				if (booking[b].service === barberService[n].id) {
+					booking[b].service = barberService[n].service_name;
+				}
+			}
+		}
+		for (const b in booking) {
+			for (const n in workingTime) {
+				if (booking[b].time === workingTime[n].id) {
+					booking[b].time = workingTime[n].time;
+				}
 			}
 		}
 	}
-	for (const b in booking) {
-		for (const n in workingTime) {
-			if (booking[b].time === workingTime[n].id) {
-				booking[b].time = workingTime[n].time;
-			}
-		}
-	}
-
 	return (
 		<div>
 			<Calendar
