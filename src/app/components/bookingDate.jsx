@@ -10,7 +10,6 @@ import 'react-datepicker/dist/react-datepicker.css';
 export default function BookingDate({ setFreeHour, setDay, barberId }) {
 	const [timeBooking, setTimeBooking] = useState([]);
 	const [time, setTime] = useState('');
-	const [showHours, setShowHours] = useState(false);
 	const [startDate, setStartDate] = useState(new Date());
 	// eslint-disable-next-line react/display-name
 	const ExampleCustomInput = forwardRef(({ value, onClick }, ref) => (
@@ -65,11 +64,7 @@ export default function BookingDate({ setFreeHour, setDay, barberId }) {
 				</div>
 				<div className='col-12 col-xl-12'>
 					{' '}
-					<Hours
-						showHours={showHours}
-						bookings={timeBooking}
-						setFreeHour={setFreeHour}
-					/>
+					<Hours bookings={timeBooking} setFreeHour={setFreeHour} />
 				</div>
 			</div>
 		</div>

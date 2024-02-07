@@ -61,8 +61,11 @@ body {
 }
 
 .btn-primary {
-  background-color: #70492F !important;
-  border-color: #70492F !important;
+  background-color: #4b2c185b !important;
+  border-color: #663f24 !important;
+}
+.d-inline label{
+  font-size: 8px !important;
 }
 
 .btn-primary:hover,
@@ -70,7 +73,7 @@ body {
 .btn-primary:visited,
 .btn-primary:focus {
   background-color: #2c1d13 !important;
-  border-color: #70492F !important;
+  border-color: #663f24 !important;
 }
 
 .booking-form input {
@@ -79,9 +82,9 @@ body {
 }
 
 .booking-form label {
-  font-size: 14px !important;
-
-  height: 2em !important;
+  font-size: 12px !important;
+  color: #ffffff65;
+  height: 2.5em !important;
 }
 
 .booking-form .form-floating input {
@@ -95,13 +98,13 @@ body {
 
 .my-radio {
   min-width: 62px;
-  font-size: 12px;
+  font-size: 12px !important;
   vertical-align: middle;
   text-align: center;
   cursor: pointer;
-  /* background-color: #70492F !important; */
+  /* background-color: #cf814d !important; */
   color: white;
-  padding: 0px;
+  padding: 5px !important;
   margin: 0 8px 8px 0;
   border: none !important;
   border-radius: 1px !important
@@ -178,9 +181,9 @@ body {
 }
 
 /* .booking-form button {
-  background-color: #70492F !important;
+  background-color: #cf814d !important;
   border-radius: 1px;
-  border: 1px solid #70492F;
+  border: 1px solid #cf814d;
 } */
 
 h4.solid {
@@ -207,7 +210,7 @@ h4::after {
 .form-select {
   background-color: #101010 !important;
   color: rgb(182, 182, 182) !important;
-  border: 1px solid #cf814d !important;
+  border: 1px solid #663f24 !important;
 }
 
 .booking-form label::after {
@@ -234,7 +237,7 @@ h4::after {
 .form-control {
   background-color: #101010 !important;
   color: rgb(182, 182, 182) !important;
-  border: 1px solid #70492F !important;
+  border: 1px solid #663f24 !important;
 }
 
 .form-floating>.form-control:focus~label,
@@ -255,7 +258,7 @@ h4::after {
   height: 140px !important;
   padding: 3px;
   opacity: 1;
-  background: #70492F;
+  background: #cf814d;
   cursor: pointer;
   object-fit: cover;
 }
@@ -314,11 +317,11 @@ h4::after {
 }
 
 .barber-checkbox label {
-  background-color: #70492F;
+  background-color: #cf814d;
   color: #fff;
   padding: 2px 15px 2px 15px;
   border-radius: 0.1px !important;
-  border-color: #70492F !important;
+  border-color: #663f24 !important;
   width: 100%;
 }
 
@@ -327,7 +330,7 @@ h4::after {
 .btn:first-child:active,
 .btn.active,
 .btn.show {
-  background-color: #494542 !important;
+  background-color: #cf814d !important;
 }
 
 .hours-checkbox .btn-check:checked+.btn,
@@ -335,7 +338,7 @@ h4::after {
 .btn:first-child:active,
 .btn.active,
 .btn.show {
-  background-color: #494542 !important;
+  background-color: #cf814d !important;
 }
 
 /* .barber-checkbox .btn-check+.btn:hover {
@@ -346,7 +349,7 @@ h4::after {
 
 .flatpickr-input {
   background-color: #101010;
-  border-color: #70492F !important;
+  border-color: #663f24 !important;
   outline: none;
   border: 1px solid;
   color: white;
@@ -358,12 +361,16 @@ h4::after {
 .example-custom-input {
   width: 100% !important;
   background-color: #00000000 !important;
-  border-color: #70492F !important;
-  border: 1px solid #70492F !important;
+  border-color: #663f24 !important;
+  border: 1px solid #663f24 !important;
   border-radius: 1px !important;
   padding: 0.5em;
   color: #cccccc !important;
   cursor: pointer;
+}
+form button{
+  color: #fff !important;
+  background-color: #cf814d !important;
 }
 .modal-content{
   background-color: #101010 !important;
@@ -385,3 +392,4 @@ h4::after {
 .modal-footer{
   border: none !important;
 }
+

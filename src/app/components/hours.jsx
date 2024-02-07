@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { workingHours } from '../api/api';
 
-export default function Hours({ showHours, bookings, setFreeHour }) {
+export default function Hours({ bookings, setFreeHour }) {
 	const [hours, setHours] = useState([]);
 
 	useEffect(() => {
