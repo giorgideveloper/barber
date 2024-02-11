@@ -47,7 +47,7 @@ export default function Hours({ bookings, setFreeHour }) {
 						<input
 							key={index}
 							type='radio'
-							className='btn-check my-radio '
+							className='btn-check  '
 							name='options' // TODO
 							id={index} // TODO
 							autoComplete='off'

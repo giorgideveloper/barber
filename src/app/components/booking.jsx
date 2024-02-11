@@ -149,7 +149,70 @@ export default function Booking() {
 						<div className='barber-checkbox'>
 							<div className='row'>
 								<h4 className='solid'>აირჩიეთ სერვისი</h4>
-								{barberService &&
+								<div className='col-md-4'>
+									<div className='barber-service'>
+										<h5>წვერის გაკეთება</h5>
+										<div class='form-group' id='contact_form'>
+											<input
+												type='checkbox'
+												name='Services Facial'
+												id='s_c1'
+												value='Deep Pore Cleansing'
+											/>
+											<label for='s_c1'>წვერის გაპარსვა</label>
+										</div>
+									</div>
+									{/* <div class='form-check'>
+										<input
+											class='form-check-input'
+											type='checkbox'
+											value=''
+											id='flexCheckChecked'
+										/>
+										<label class='form-check-label' for='flexCheckChecked'>
+											Checked checkbox
+										</label>
+									</div> */}
+								</div>
+								<div className='col-md-4'>
+									<div className='barber-service'>
+										<h5>წვერის გაკეთება</h5>
+										<div class='form-group' id='contact_form'>
+											<input
+												type='checkbox'
+												name='Services Facial'
+												id='s_c2'
+												value='Deep Pore Cleansing'
+											/>
+											<label for='s_c2'>თმის შეჭრა</label>
+										</div>
+									</div>
+								</div>
+								<div className='col-md-4'>
+									<div className='barber-service'>
+										<h5>წვერის გაკეთება</h5>
+										<div class='form-group' id='contact_form'>
+											<input
+												type='checkbox'
+												name='Services Facial'
+												id='s_c3'
+												value='Deep Pore Cleansing'
+											/>
+											<label for='s_c3'>წვერის გაპარსვა</label>
+										</div>
+										<div class='form-group' id='contact_form'>
+											<input
+												type='checkbox'
+												name='Services Facial'
+												id='s_c4'
+												value='Deep Pore Cleansing'
+											/>
+											<label for='s_c4'>წვერის გაპარსვა</label>
+										</div>
+									</div>
+								</div>
+
+								{/* {barberService &&
 									barberService.map(result => (
 										// eslint-disable-next-line react/jsx-key
 										<div className='col-xl-3 col-md-6' key={result.id}>
@@ -170,7 +233,7 @@ export default function Booking() {
 												{result.service_name}
 											</label>
 										</div>
-									))}
+									))} */}
 							</div>
 						</div>
 
@@ -193,8 +256,12 @@ export default function Booking() {
 																onChange={e => setBarberId(e.target.value)}
 																required
 															/>
-															<img src={`${res.image}`} alt='Image 1' />
-															{res.barber_name}
+															<img
+																src={`${res.image}`}
+																className='barber-image'
+																alt='Image 1'
+															/>
+															<span className='pt-2'>{res.barber_name}</span>
 														</label>
 													))}
 											</div>

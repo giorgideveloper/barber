@@ -1,6 +1,13 @@
 body {
   background-color: #e9e9e9 !important;
+  font-family: "bpg-arial", sans-serif !important;
+}
 
+@font-face {
+  font-family: 'bpg-arial';
+  font-style: normal;
+  font-weight: 200;
+  src: url('../fonts/bpg-arial-caps-webfont.woff') format('woff');
 }
 
 @media (min-width: 1400px) {
@@ -64,7 +71,8 @@ body {
   background-color: #4b2c185b !important;
   border-color: #663f24 !important;
 }
-.d-inline label{
+
+.d-inline label {
   font-size: 8px !important;
 }
 
@@ -84,7 +92,7 @@ body {
 .booking-form label {
   font-size: 12px !important;
   color: #ffffff65;
-  height: 2.5em !important;
+  height: 2.5em;
 }
 
 .booking-form .form-floating input {
@@ -97,7 +105,8 @@ body {
 }
 
 .my-radio {
-  min-width: 62px;
+
+  min-width: 65px;
   font-size: 12px !important;
   vertical-align: middle;
   text-align: center;
@@ -107,7 +116,8 @@ body {
   padding: 5px !important;
   margin: 0 8px 8px 0;
   border: none !important;
-  border-radius: 1px !important
+  border-radius: 1px !important;
+  letter-spacing: 1.2px;
 }
 
 
@@ -127,19 +137,24 @@ body {
 }
 
 .booking-section {
+
   background-image: url('../img/booking-cover.jpg');
   background-color: #cccccc;
-  height: 376px;
-  background-position: center;
+  height: 366px;
+  background-position: 0px -280px;
   background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
+
   position: relative;
+  border-image: fill 0 linear-gradient(0deg, rgb(16, 16, 16) 0%, rgba(255, 255, 255, 0) 87%)
 }
 
 .booking-solid {
   position: relative;
   border-top: 1px solid #cf814d;
-  width: 200px;
+  /* width: 200px; */
+  width: 441px;
   clear: both;
   margin: 22px auto;
   margin-bottom: 40px;
@@ -222,9 +237,64 @@ h4::after {
   content: "";
   background-color: #10101000 !important;
   color: rgb(226, 226, 226) !important;
+}
 
+.barber-service h5 {
+  background-color: #70492f;
+  width: 100%;
+  color: #fff;
+  padding: 5px 15px 2px 15px;
+  font-size: 16px;
+  letter-spacing: 2px
+}
+
+.booking-form .barber-service .form-group {
+  margin-bottom: -0.6em !important;
 
 }
+
+.barber-service label {
+  color: #a8a5a8;
+}
+
+.barber-service input[type=checkbox]:checked {
+  background: #cf814d !important;
+  opacity: 1 !important;
+  background: none;
+  cursor: pointer;
+  line-height: 0;
+
+  outline: 0;
+  padding: 0 !important;
+  vertical-align: text-top;
+  height: 15px;
+  width: 15px;
+  -webkit-appearance: none;
+  opacity: .5;
+
+}
+
+.barber-service label {
+  font-size: 15px !important;
+  padding-left: 1em;
+  cursor: pointer;
+}
+
+
+#contact_form input[type=checkbox] {
+  border: solid 1px #cf814d;
+  background: none;
+  cursor: pointer;
+  line-height: 0;
+  outline: 0;
+  padding: 0 !important;
+  vertical-align: text-top;
+  height: 15px;
+  width: 15px;
+  -webkit-appearance: none;
+  opacity: .5;
+}
+
 
 .form-floating {
   color: rgb(182, 182, 182) !important;
@@ -261,7 +331,11 @@ h4::after {
   background: #cf814d;
   cursor: pointer;
   object-fit: cover;
+
+
 }
+
+
 
 
 .barber-radio input[type="radio"]+label,
@@ -290,7 +364,7 @@ h4::after {
   color: #c0c0c0 !important;
 }
 
-[type=radio] {
+.barber-radio [type=radio] {
   position: absolute;
   opacity: 0;
   width: 0;
@@ -298,7 +372,7 @@ h4::after {
 }
 
 /* IMAGE STYLES */
-[type=radio]+img {
+.barber-radio [type=radio]+img {
   padding: 0px;
   position: relative;
   background: none;
@@ -312,18 +386,18 @@ h4::after {
 }
 
 /* CHECKED STYLES */
-[type=radio]:checked+img {
+.barber-radio [type=radio]:checked+img {
   outline: 2px solid #cf814d !important;
 }
 
-.barber-checkbox label {
+/* .barber-checkbox label {
   background-color: #cf814d;
   color: #fff;
   padding: 2px 15px 2px 15px;
   border-radius: 0.1px !important;
   border-color: #663f24 !important;
   width: 100%;
-}
+} */
 
 .barber-checkbox .btn-check:checked+.btn,
 :not(.btn-check)+.btn:active,
@@ -339,6 +413,7 @@ h4::after {
 .btn.active,
 .btn.show {
   background-color: #cf814d !important;
+
 }
 
 /* .barber-checkbox .btn-check+.btn:hover {
@@ -368,28 +443,32 @@ h4::after {
   color: #cccccc !important;
   cursor: pointer;
 }
-form button{
+
+form button {
   color: #fff !important;
   background-color: #cf814d !important;
 }
-.modal-content{
+
+.modal-content {
   background-color: #101010 !important;
   color: #fff !important;
   border: 1px solid #101010 !important;
 }
-.modal-content .form-control{
+
+.modal-content .form-control {
 
   color: #fff !important;
 
 }
-.modal-input{
+
+.modal-input {
   color: #fff !important;
 }
 
-.modal-header{
-  border: none !important;
-}
-.modal-footer{
+.modal-header {
   border: none !important;
 }
 
+.modal-footer {
+  border: none !important;
+}

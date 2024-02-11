@@ -9,7 +9,7 @@ export default function Home() {
 					<section className='booking-section'>
 						<div className='row'>
 							<div className=' booking-title '>
-								<h1>BOOKING</h1>
+								<h1>ჯავშანის გაკეთება</h1>
 								<div className='booking-solid'></div>
 							</div>
 						</div>
