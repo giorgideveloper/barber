@@ -99,7 +99,7 @@ export default function Booking() {
 					console.log('error sms code');
 				}
 			} else {
-				toast('error', 'მონიშნეთ ყველა ველიი');
+				toast('info', 'მონიშნეთ ყველა ველიი');
 			}
 		} catch (err) {
 			console.log('error', 'სმს კოდის გამოგზავნა ვერ მოხერხდა');
@@ -152,62 +152,55 @@ export default function Booking() {
 								<div className='col-md-4'>
 									<div className='barber-service'>
 										<h5>წვერის გაკეთება</h5>
-										<div class='form-group' id='contact_form'>
+										<div className='form-group' id='contact_form'>
 											<input
 												type='checkbox'
-												name='Services Facial'
+												name='service'
 												id='s_c1'
-												value='Deep Pore Cleansing'
+												value='1'
+												onChange={data}
 											/>
-											<label for='s_c1'>წვერის გაპარსვა</label>
+											<label htmlFor='s_c1'>წვერის გაპარსვა</label>
 										</div>
 									</div>
-									{/* <div class='form-check'>
-										<input
-											class='form-check-input'
-											type='checkbox'
-											value=''
-											id='flexCheckChecked'
-										/>
-										<label class='form-check-label' for='flexCheckChecked'>
-											Checked checkbox
-										</label>
-									</div> */}
 								</div>
 								<div className='col-md-4'>
 									<div className='barber-service'>
 										<h5>წვერის გაკეთება</h5>
-										<div class='form-group' id='contact_form'>
+										<div className='form-group' id='contact_form'>
 											<input
 												type='checkbox'
-												name='Services Facial'
+												name='service'
 												id='s_c2'
-												value='Deep Pore Cleansing'
+												value='2'
+												onChange={data}
 											/>
-											<label for='s_c2'>თმის შეჭრა</label>
+											<label htmlFor='s_c2'>თმის შეჭრა</label>
 										</div>
 									</div>
 								</div>
 								<div className='col-md-4'>
 									<div className='barber-service'>
 										<h5>წვერის გაკეთება</h5>
-										<div class='form-group' id='contact_form'>
+										<div className='form-group' id='contact_form'>
 											<input
 												type='checkbox'
-												name='Services Facial'
+												name='service'
 												id='s_c3'
-												value='Deep Pore Cleansing'
+												value='3'
+												onChange={data}
 											/>
-											<label for='s_c3'>წვერის გაპარსვა</label>
+											<label htmlFor='s_c3'>წვერის გაპარსვა</label>
 										</div>
-										<div class='form-group' id='contact_form'>
+										<div className='form-group' id='contact_form'>
 											<input
 												type='checkbox'
-												name='Services Facial'
+												name='service'
 												id='s_c4'
-												value='Deep Pore Cleansing'
+												value='4'
+												onChange={data}
 											/>
-											<label for='s_c4'>წვერის გაპარსვა</label>
+											<label htmlFor='s_c4'>წვერის გაპარსვა</label>
 										</div>
 									</div>
 								</div>
