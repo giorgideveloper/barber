@@ -111,9 +111,6 @@ body {
   height: 2.5em;
 }
 
-.hours-checkbox label {
-  color: #ffffff !important;
-}
 
 .booking-form .form-floating input {
   min-height: 2.8em !important;
@@ -424,6 +421,7 @@ h4::after {
 .btn:first-child:active,
 .btn.active,
 .btn.show {
+  color: #fff !important;
   background-color: #cf814d !important;
 }
 
@@ -434,6 +432,44 @@ h4::after {
 .btn.show {
   background-color: #cf814d !important;
 
+}
+
+.hours-checkbox .btn-check:disabled+.btn, .btn-check[disabled]+.btn {
+  color: #ffffff56 !important;
+
+}
+
+.hours-checkbox {
+  position: relative;
+}
+
+.hours-checkbox label {
+  color: #a8a5a8;
+  position: relative;
+}
+
+
+
+.tooltiptext {
+  display: none;
+  width: 120px !important;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -60px;
+
+}
+
+.d-inline:hover .tooltiptext {
+  display: block !important;
 }
 
 /* .barber-checkbox .btn-check+.btn:hover {

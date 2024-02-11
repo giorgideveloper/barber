@@ -38,16 +38,16 @@ export default function Hours({ bookings, setFreeHour }) {
 	}
 
 	return (
-		<div className='mt-3 hours-checkbox '>
+		<div className='mt-3 hours-checkbox  '>
 			<h4 className='solid'>მონიშნე დრო</h4>
 			{finalBookings &&
 				finalBookings?.map((booking, index) => (
 					// eslint-disable-next-line react/jsx-key
-					<div className='d-inline' key={index}>
+					<div className={`d-inline `} key={index}>
 						<input
 							key={index}
 							type='radio'
-							className='btn-check  '
+							className={`btn-check  `}
 							name='options' // TODO
 							id={index} // TODO
 							autoComplete='off'
@@ -55,11 +55,21 @@ export default function Hours({ bookings, setFreeHour }) {
 							disabled={booking.booked}
 							onChange={e => setFreeHour(e.target.value)}
 						/>
+						{}
+
 						<label
-							className='btn btn-primary my-radio'
+							className={`btn btn-primary my-radio ${
+								booking.booked ? 'tooltips' : ''
+							}`}
 							htmlFor={index}
+
 							// TODO
 						>
+							{booking.booked ? (
+								<span className='tooltiptext'>დაკავებულია</span>
+							) : (
+								''
+							)}
 							{booking.time.slice(0, 5)}
 						</label>
 					</div>
