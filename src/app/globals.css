@@ -56,7 +56,23 @@ body {
     margin-top: 1em !important;
 
   }
+
+  .booking-title h1 {
+    font-size: 30px !important;
+  }
+
+  .booking-solid {
+    width: 264px !important;
+  }
+
+
 }
+
+/* @media (max-width:769px) {
+  .booking-section {
+    background-position: 0px 0% !important;
+  }
+} */
 
 
 .barber-checkbox .btn {
@@ -141,10 +157,10 @@ body {
   background-image: url('../img/booking-cover.jpg');
   background-color: #cccccc;
   height: 366px;
-  background-position: 0px -280px;
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-attachment: fixed;
+
 
   position: relative;
   border-image: fill 0 linear-gradient(0deg, rgb(16, 16, 16) 0%, rgba(255, 255, 255, 0) 87%)
