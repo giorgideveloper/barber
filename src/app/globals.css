@@ -111,6 +111,10 @@ body {
   height: 2.5em;
 }
 
+.hours-checkbox label {
+  color: #ffffff !important;
+}
+
 .booking-form .form-floating input {
   min-height: 2.8em !important;
   padding: 1em !important;
