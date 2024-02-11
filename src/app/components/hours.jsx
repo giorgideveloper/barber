@@ -58,15 +58,13 @@ export default function Hours({ bookings, setFreeHour }) {
 						{}
 
 						<label
-							className={`btn btn-primary my-radio ${
+							className={`btn btn-primary my-radio  ${
 								booking.booked ? 'tooltips' : ''
 							}`}
 							htmlFor={index}
-
-							// TODO
 						>
 							{booking.booked ? (
-								<span className='tooltiptext'>დაკავებულია</span>
+								<span className='tooltiptext'>დაკავებულია</span> // TODO
 							) : (
 								''
 							)}

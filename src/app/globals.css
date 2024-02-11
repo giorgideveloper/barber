@@ -46,6 +46,10 @@ body {
   }
 }
 
+.booking-date {
+  margin-top: 11px !important;
+}
+
 @media (max-width:758px) {
   .booking-date {
     margin-top: 9em !important;
@@ -68,12 +72,17 @@ body {
 
 }
 
+.form-body {
+  margin-top: -3em !important;
+}
+
 /* @media (max-width:769px) {
   .booking-section {
     background-position: 0px 0% !important;
   }
 } */
 
+.barber-name {}
 
 .barber-checkbox .btn {
   margin-bottom: 1em !important;
@@ -137,7 +146,9 @@ body {
   letter-spacing: 1.2px;
 }
 
-
+.my-radio:hover {
+  background-color: #cf814d !important;
+}
 
 .booking-title {
   text-align: center;
@@ -157,14 +168,12 @@ body {
 
   background-image: url('../img/booking-cover.jpg');
   background-color: #cccccc;
-  height: 366px;
-  background-position: center;
+  height: 375px;
+  background-position: 50% 32%;
   background-repeat: no-repeat;
   background-size: cover;
-
-
   position: relative;
-  border-image: fill 0 linear-gradient(0deg, rgb(16, 16, 16) 0%, rgba(255, 255, 255, 0) 87%)
+  border-image: fill 0 linear-gradient(0deg, rgb(16, 16, 16) 0%, rgba(255, 255, 255, 0) 15%)
 }
 
 .booking-solid {
@@ -233,7 +242,7 @@ h4.solid {
 h4::after {
   content: "";
   position: absolute !important;
-  border-bottom: 1px solid #cf814d !important;
+  border-bottom: 1px solid #70492f !important;
   top: 14px !important;
   margin-left: 10px !important;
   width: 30px !important;
@@ -404,7 +413,7 @@ h4::after {
 
 /* CHECKED STYLES */
 .barber-radio [type=radio]:checked+img {
-  outline: 2px solid #cf814d !important;
+  outline: 3px solid #cf814d !important;
 }
 
 /* .barber-checkbox label {
@@ -435,13 +444,17 @@ h4::after {
 }
 
 .hours-checkbox .btn-check:disabled+.btn, .btn-check[disabled]+.btn {
-  color: #ffffff56 !important;
+  color: #ffffff56;
+
+
 
 }
+
 
 .hours-checkbox {
   position: relative;
 }
+
 
 .hours-checkbox label {
   color: #a8a5a8;
@@ -453,12 +466,12 @@ h4::after {
 .tooltiptext {
   display: none;
   width: 120px !important;
-  background-color: black;
+  background-color: #70492f !important;
   color: #fff;
   text-align: center;
   border-radius: 6px;
   padding: 5px 0;
-
+  margin: 0.5em;
   /* Position the tooltip */
   position: absolute;
   z-index: 1;
@@ -467,6 +480,18 @@ h4::after {
   margin-left: -60px;
 
 }
+
+.tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #70492f transparent transparent transparent;
+}
+
 
 .d-inline:hover .tooltiptext {
   display: block !important;

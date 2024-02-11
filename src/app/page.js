@@ -16,7 +16,7 @@ export default function Home() {
 					</section>
 				</div>
 			</div>
-			<div className='container'>
+			<div className='container form-body'>
 				<div className='row justify-content-center'>
 					<Booking />
 				</div>

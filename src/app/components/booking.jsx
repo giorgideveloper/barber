@@ -254,7 +254,8 @@ export default function Booking() {
 																className='barber-image'
 																alt='Image 1'
 															/>
-															<span className='pt-2'>{res.barber_name}</span>
+															<br />
+															<p className='barber-name'>{res.barber_name}</p>
 														</label>
 													))}
 											</div>
