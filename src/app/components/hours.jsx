@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { workingHours } from '../api/api';
+import DisabledTooltip from './tooltip';
 
 export default function Hours({ bookings, setFreeHour }) {
 	const [hours, setHours] = useState([]);
@@ -43,33 +44,12 @@ export default function Hours({ bookings, setFreeHour }) {
 			{finalBookings &&
 				finalBookings?.map((booking, index) => (
 					// eslint-disable-next-line react/jsx-key
-					<div className={`d-inline `} key={index}>
-						<input
-							key={index}
-							type='radio'
-							className={`btn-check  `}
-							name='options' // TODO
-							id={index} // TODO
-							autoComplete='off'
-							value={booking.id}
-							disabled={booking.booked}
-							onChange={e => setFreeHour(e.target.value)}
+					<div className='d-inline ' key={index}>
+						<DisabledTooltip
+							booking={booking}
+							setFreeHour={setFreeHour}
+							index={index}
 						/>
-						{}
-
-						<label
-							className={`btn btn-primary my-radio  ${
-								booking.booked ? 'tooltips' : ''
-							}`}
-							htmlFor={index}
-						>
-							{booking.booked ? (
-								<span className='tooltiptext'>დაკავებულია</span> // TODO
-							) : (
-								''
-							)}
-							{booking.time.slice(0, 5)}
-						</label>
 					</div>
 				))}
 		</div>

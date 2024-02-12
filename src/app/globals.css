@@ -82,7 +82,9 @@ body {
   }
 } */
 
-.barber-name {}
+.barber-name {
+  margin-top: 11em;
+}
 
 .barber-checkbox .btn {
   margin-bottom: 1em !important;
@@ -451,7 +453,8 @@ h4::after {
 }
 
 
-.hours-checkbox {
+.hours-checkbox h4 {
+  margin-top: 2.5em !important;
   position: relative;
 }
 
@@ -480,6 +483,11 @@ h4::after {
   margin-left: -60px;
 
 }
+
+#tooltip-disabled {
+  margin-bottom: 0.7em !important;
+}
+
 
 .tooltiptext::after {
   content: "";

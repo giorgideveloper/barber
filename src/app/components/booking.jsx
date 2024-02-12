@@ -237,7 +237,7 @@ export default function Booking() {
 								<div className='col-md'>
 									<div className='row g-2'>
 										<div className='col-md-12'>
-											<div className='mt-3 d-flex barber-radio'>
+											<div className=' d-flex barber-radio'>
 												{barber &&
 													barber?.map(res => (
 														// eslint-disable-next-line react/jsx-key
@@ -255,6 +255,7 @@ export default function Booking() {
 																alt='Image 1'
 															/>
 															<br />
+
 															<p className='barber-name'>{res.barber_name}</p>
 														</label>
 													))}
@@ -273,7 +274,7 @@ export default function Booking() {
 							/>
 						</div>
 
-						<div className='col-12 col-md-6 mt-3'>
+						<div className='col-12 col-md-6'>
 							<div className='row mt-3 g-2'>
 								<h4 className='solid'>შენი ინფორმაცია</h4>
 								<div className='col-md-12'>

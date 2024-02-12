@@ -51,7 +51,7 @@ export default function BookingDate({ setFreeHour, setDay, barberId }) {
 		<div>
 			<h4 className='solid'>აირჩიე დრო</h4>
 			<div className='row g-1'>
-				<div className='col-12 col-xl-12 mt-4'>
+				<div className='col-12 col-xl-12 '>
 					<DatePicker
 						selected={startDate}
 						onChange={date => setStartDate(date)}
