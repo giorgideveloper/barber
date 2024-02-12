@@ -44,10 +44,20 @@ body {
   .text-area {
     margin-top: -3.5em !important;
   }
+
+  .barber-service label {
+    font-size: 11px !important;
+  }
 }
 
 .booking-date {
   margin-top: 11px !important;
+}
+
+@media(max-width: 426px) {
+  .barber-service label {
+    font-size: 13px !important;
+  }
 }
 
 @media (max-width:758px) {
@@ -75,6 +85,12 @@ body {
 @media (max-width:426px) {
   .booking-section {
     background-size: 250% !important;
+  }
+}
+
+@media (max-width:321px) {
+  .barber-service label {
+    font-size: 13px !important;
   }
 }
 
@@ -123,7 +139,7 @@ body {
 }
 
 .booking-form label {
-  font-size: 12px !important;
+  font-size: 12px;
   color: #ffffff65;
   height: 2.5em;
 }
@@ -309,7 +325,7 @@ h4::after {
 }
 
 .barber-service label {
-  font-size: 15px !important;
+  font-size: 15px;
   padding-left: 1em;
   cursor: pointer;
 }
@@ -452,13 +468,10 @@ h4::after {
 
 }
 
-.hours-checkbox .btn-check:disabled+.btn, .btn-check[disabled]+.btn {
+.hours-checkbox .btn-check:disabled+.btn,
+.btn-check[disabled]+.btn {
   color: #ffffff56;
-
-
-
 }
-
 
 .hours-checkbox h4 {
   margin-top: 2.5em !important;
@@ -467,6 +480,7 @@ h4::after {
 
 
 .hours-checkbox label {
+  font-size: 12px !important;
   color: #a8a5a8;
   position: relative;
 }
