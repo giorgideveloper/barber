@@ -7,6 +7,7 @@ import Swal from 'sweetalert2';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import MyModal from './modal';
 import BorderExample from './spiner';
+import BarberService from './barberService';
 
 export default function Booking() {
 	const [day, setDay] = useState('');
@@ -16,6 +17,7 @@ export default function Booking() {
 	const [barber, setBarber] = useState([]);
 	const [barberId, setBarberId] = useState('');
 	const [barberService, setBarberService] = useState([]);
+
 	//modal
 	const [showModal, setShowModal] = useState(false);
 	const [modalTitle, setModalTitle] = useState('შეიიყვაანეთ სმს კოდი');
@@ -149,84 +151,7 @@ export default function Booking() {
 						<div className='barber-checkbox'>
 							<div className='row'>
 								<h4 className='solid'>აირჩიეთ სერვისი</h4>
-								<div className='col-md-4'>
-									<div className='barber-service'>
-										<h5>წვერის გაკეთება</h5>
-										<div className='form-group' id='contact_form'>
-											<input
-												type='checkbox'
-												name='service'
-												id='s_c1'
-												value='1'
-												onChange={data}
-											/>
-											<label htmlFor='s_c1'>წვერის გაპარსვა</label>
-										</div>
-									</div>
-								</div>
-								<div className='col-md-4'>
-									<div className='barber-service'>
-										<h5>წვერის გაკეთება</h5>
-										<div className='form-group' id='contact_form'>
-											<input
-												type='checkbox'
-												name='service'
-												id='s_c2'
-												value='2'
-												onChange={data}
-											/>
-											<label htmlFor='s_c2'>თმის შეჭრა</label>
-										</div>
-									</div>
-								</div>
-								<div className='col-md-4'>
-									<div className='barber-service'>
-										<h5>წვერის გაკეთება</h5>
-										<div className='form-group' id='contact_form'>
-											<input
-												type='checkbox'
-												name='service'
-												id='s_c3'
-												value='3'
-												onChange={data}
-											/>
-											<label htmlFor='s_c3'>წვერის გაპარსვა</label>
-										</div>
-										<div className='form-group' id='contact_form'>
-											<input
-												type='checkbox'
-												name='service'
-												id='s_c4'
-												value='4'
-												onChange={data}
-											/>
-											<label htmlFor='s_c4'>წვერის გაპარსვა</label>
-										</div>
-									</div>
-								</div>
-
-								{/* {barberService &&
-									barberService.map(result => (
-										// eslint-disable-next-line react/jsx-key
-										<div className='col-xl-3 col-md-6' key={result.id}>
-											{' '}
-											<input
-												type='checkbox'
-												className='btn-check'
-												id={`res${result.id}`}
-												autoComplete='off'
-												onChange={data}
-												name='service'
-												value={result.id}
-											/>
-											<label
-												className='btn btn-primary'
-												htmlFor={`res${result.id}`}
-											>
-												{result.service_name}
-											</label>
-										</div>
-									))} */}
+								<BarberService barberService={barberService} data={data} />
 							</div>
 						</div>
 
