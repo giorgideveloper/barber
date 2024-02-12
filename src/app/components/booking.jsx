@@ -143,7 +143,7 @@ export default function Booking() {
 						finalSmsCode={finalSmsCode}
 					/>
 					<form
-						className='row g-3 mb-5 needs-validation booking-form'
+						className='row mb-5 g-3 needs-validation booking-form'
 						onSubmit={handleBooking}
 					>
 						<div className='barber-checkbox'>
@@ -275,10 +275,10 @@ export default function Booking() {
 						</div>
 
 						<div className='col-12 col-md-6'>
-							<div className='row mt-3 g-2'>
+							<div className='row mt-3 '>
 								<h4 className='solid'>შენი ინფორმაცია</h4>
 								<div className='col-md-12'>
-									<div className='form-floating'>
+									<div className='form-floating '>
 										<input
 											type='text'
 											className='form-control from-inputs shadow-sm'
@@ -314,7 +314,7 @@ export default function Booking() {
 									className='form-control shadow-sm from-inputs'
 									placeholder='Leave a comment here'
 									id='floatingTextarea2'
-									style={{ height: 120 }}
+									style={{ height: 97 }}
 									name='message'
 									onChange={data}
 								></textarea>

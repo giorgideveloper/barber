@@ -72,6 +72,12 @@ body {
 
 }
 
+@media (max-width:426px) {
+  .booking-section {
+    background-size: 250% !important;
+  }
+}
+
 .form-body {
   margin-top: -3em !important;
 }
@@ -91,7 +97,7 @@ body {
 }
 
 .text-area {
-  margin-top: 1.5em !important;
+  margin-top: 1em !important;
 }
 
 .btn-primary {
@@ -326,6 +332,7 @@ h4::after {
 
 .form-floating {
   color: rgb(182, 182, 182) !important;
+  margin-top: -1em !important;
 }
 
 .form-floating label {
@@ -481,7 +488,6 @@ h4::after {
   bottom: 100%;
   left: 50%;
   margin-left: -60px;
-
 }
 
 #tooltip-disabled {
