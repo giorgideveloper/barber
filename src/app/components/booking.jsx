@@ -137,128 +137,152 @@ export default function Booking() {
 		<>
 			{loading ? (
 				<>
-					<MyModal
-						showModal={showModal}
-						handleCloseModal={handleCloseModal} //Todo
-						modalTitle={modalTitle}
-						setCheckCode={setCheckCode}
-						finalSmsCode={finalSmsCode}
-					/>
-					<form
-						className='row mb-5 g-3 needs-validation booking-form'
-						onSubmit={handleBooking}
-					>
-						<div className='barber-checkbox'>
-							<div className='row'>
-								<h4 className='solid'>აირჩიეთ სერვისი</h4>
-								<BarberService barberService={barberService} data={data} />
-							</div>
+					<div className='container-fluid'>
+						<div className='row'>
+							<section className='booking-section'>
+								<div className='row'>
+									<div className=' booking-title '>
+										<h1>ჯავშანის გაკეთება</h1>
+										<div className='booking-solid'></div>
+									</div>
+								</div>
+							</section>
 						</div>
+					</div>
+					<div className='container form-body'>
+						<div className='row justify-content-center'>
+							<MyModal
+								showModal={showModal}
+								handleCloseModal={handleCloseModal} //Todo
+								modalTitle={modalTitle}
+								setCheckCode={setCheckCode}
+								finalSmsCode={finalSmsCode}
+							/>
+							<form
+								className='row mb-5 g-3 needs-validation booking-form'
+								onSubmit={handleBooking}
+							>
+								<div className='barber-checkbox'>
+									<div className='row'>
+										<h4 className='solid'>აირჩიეთ სერვისი</h4>
+										<BarberService barberService={barberService} data={data} />
+									</div>
+								</div>
 
-						<div className='col-12 col-md-6 mt-3'>
-							<div className='row g-2 '>
-								<h4 className='solid'>აირჩიეთ ბარბერი</h4>
+								<div className='col-12 col-md-6 mt-3'>
+									<div className='row g-2 '>
+										<h4 className='solid'>აირჩიეთ ბარბერი</h4>
 
-								<div className='col-md'>
-									<div className='row g-2'>
-										<div className='col-md-12'>
-											<div className=' d-flex barber-radio'>
-												{barber &&
-													barber?.map(res => (
-														// eslint-disable-next-line react/jsx-key
-														<label key={res.id}>
-															<input
-																type='radio'
-																name='bookmarked_images'
-																value={res.id}
-																onChange={e => setBarberId(e.target.value)}
-																required
-															/>
-															<img
-																src={`${res.image}`}
-																className='barber-image'
-																alt='Image 1'
-															/>
-															<br />
+										<div className='col-md'>
+											<div className='row g-2'>
+												<div className='col-md-12'>
+													<div className=' d-flex barber-radio'>
+														{barber &&
+															barber?.map(res => (
+																// eslint-disable-next-line react/jsx-key
+																<label key={res.id}>
+																	<input
+																		type='radio'
+																		name='bookmarked_images'
+																		value={res.id}
+																		onChange={e => setBarberId(e.target.value)}
+																		required
+																	/>
+																	<img
+																		src={`${res.image}`}
+																		className='barber-image'
+																		alt='Image 1'
+																	/>
+																	<br />
 
-															<p className='barber-name'>{res.barber_name}</p>
-														</label>
-													))}
+																	<p className='barber-name'>
+																		{res.barber_name}
+																	</p>
+																</label>
+															))}
+													</div>
+												</div>
 											</div>
 										</div>
 									</div>
 								</div>
-							</div>
-						</div>
-						<div className='col-12 col-md-6 booking-date '>
-							<BookingDate
-								setFreeHour={setFreeHour}
-								setDay={setDay}
-								barberId={barberId}
-								setCheckCode={setCheckCode}
-							/>
-						</div>
+								<div className='col-12 col-md-6 booking-date '>
+									<BookingDate
+										setFreeHour={setFreeHour}
+										setDay={setDay}
+										barberId={barberId}
+										setCheckCode={setCheckCode}
+									/>
+								</div>
 
-						<div className='col-12 col-md-6'>
-							<div className='row mt-3 '>
-								<h4 className='solid'>შენი ინფორმაცია</h4>
-								<div className='col-md-12'>
-									<div className='form-floating '>
-										<input
-											type='text'
-											className='form-control from-inputs shadow-sm'
-											id='validationDefault01'
-											placeholder='სახელი'
-											name='customer_name'
-											onChange={data}
-											required
-										/>
-										<label htmlFor='validationDefault01'> სახელი</label>
+								<div className='col-12 col-md-6'>
+									<div className='row mt-3 '>
+										<h4 className='solid'>შენი ინფორმაცია</h4>
+										<div className='col-md-12'>
+											<div className='form-floating '>
+												<input
+													type='text'
+													className='form-control from-inputs shadow-sm'
+													id='validationDefault01'
+													placeholder='სახელი'
+													name='customer_name'
+													onChange={data}
+													required
+												/>
+												<label htmlFor='validationDefault01'> სახელი</label>
+											</div>
+										</div>
+										<div className='col-md'>
+											<div className='form-floating'>
+												<input
+													type='tel'
+													className='form-control shadow-sm from-inputs mt-4'
+													id='validationCustom01'
+													placeholder='ნომერი'
+													name='customer_phone'
+													onChange={e => setMobile(e.target.value)}
+													required
+												/>
+												<label htmlFor='validationCustom01'>ტელეფონი</label>
+												<div className='valid-feedback'>Looks good!</div>
+											</div>
+										</div>
 									</div>
 								</div>
-								<div className='col-md'>
+								<div className='col-md-6  text-area'>
 									<div className='form-floating'>
-										<input
-											type='tel'
-											className='form-control shadow-sm from-inputs mt-4'
-											id='validationCustom01'
-											placeholder='ნომერი'
-											name='customer_phone'
-											onChange={e => setMobile(e.target.value)}
-											required
-										/>
-										<label htmlFor='validationCustom01'>ტელეფონი</label>
-										<div className='valid-feedback'>Looks good!</div>
+										<textarea
+											className='form-control shadow-sm from-inputs'
+											placeholder='Leave a comment here'
+											id='floatingTextarea2'
+											style={{ height: 97 }}
+											name='message'
+											onChange={data}
+										></textarea>
+										<label htmlFor='floatingTextarea2' className=''>
+											Comments
+										</label>
 									</div>
 								</div>
-							</div>
+								<div className='row justify-content-center text-center'>
+									<div className='col-md-12 col-12 mt-4'>
+										<button type='submit' className='btn '>
+											ჯავშანის გაკეთება
+										</button>
+									</div>
+								</div>
+							</form>
 						</div>
-						<div className='col-md-6  text-area'>
-							<div className='form-floating'>
-								<textarea
-									className='form-control shadow-sm from-inputs'
-									placeholder='Leave a comment here'
-									id='floatingTextarea2'
-									style={{ height: 97 }}
-									name='message'
-									onChange={data}
-								></textarea>
-								<label htmlFor='floatingTextarea2' className=''>
-									Comments
-								</label>
-							</div>
-						</div>
-						<div className='row justify-content-center text-center'>
-							<div className='col-md-12 col-12 mt-4'>
-								<button type='submit' className='btn '>
-									ჯავშანის გაკეთება
-								</button>
-							</div>
-						</div>
-					</form>
+					</div>
 				</>
 			) : (
-				<BorderExample />
+				<div className='container'>
+					<div className='row justify-content-center align-items-center h-100'>
+						<section className='spinner'>
+							<BorderExample />
+						</section>
+					</div>
+				</div>
 			)}
 		</>
 	);

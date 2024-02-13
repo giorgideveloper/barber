@@ -94,6 +94,18 @@ body {
   }
 }
 
+.spinner {
+  height: 100vh;
+  display: flex;
+  justify-content: center !important;
+  align-items: center !important;
+
+}
+
+.variant {
+  background-color: red !important;
+}
+
 .form-body {
   margin-top: -3em !important;
 }
